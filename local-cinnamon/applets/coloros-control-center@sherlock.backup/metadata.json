@@ -1,0 +1,8 @@
+{
+  "uuid": "coloros-control-center@sherlock",
+  "name": "ColorOS Control Center",
+  "description": "OPPO/ColorOS-inspired quick settings panel for Linux Mint Cinnamon",
+  "icon": "view-grid",
+  "version": "4.0.0",
+  "max-instances": "-1"
+}
