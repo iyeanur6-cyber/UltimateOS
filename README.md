@@ -28,3 +28,34 @@ Run this single command in a fresh **Linux Mint 22.3 (Cinnamon)** terminal:
 
 ```bash
 git clone [https://github.com/iyeanur6-cyber/UltimateOS.git](https://github.com/iyeanur6-cyber/UltimateOS.git) && cd UltimateOS && ./install.sh
+```
+After the script finishes:
+
+Log out and log back in (or press Alt + F2, type r, and press Enter) to reload the Cinnamon desktop shell.
+
+Click the Quick Settings icon in the top-right panel bar to open your control center.
+
+📁 Repository Structure
+```
+UltimateOS/
+├── quick-settings-coloros/   # Custom Python/GTK3 ColorOS Quick Settings source code
+├── bin/                      # Executable launcher installed to /usr/local/bin/
+├── themes/                   # Custom GTK and Cinnamon themes
+├── icons/                    # Custom system icon packs
+├── wallpaper/                # Default desktop wallpaper
+├── cinnamon-dconf.ini        # Portable Cinnamon desktop layout & panel configuration
+├── install.sh                # Automated one-command post-install setup script
+└── README.md                 # Project documentation
+```
+🔄 Keeping Your Setup Synced
+If you customize your panel or desktop layout further on your machine, sync your local changes back to GitHub anytime:
+```
+cd ~/UltimateOS && git pull origin main
+```
+📜 License & Base System
+Built on top of Linux Mint 22.3 (Zena) and Ubuntu 24.04 LTS. All underlying system packages remain managed by official Linux Mint and Ubuntu repositories.
+```
+### Quick Step to Save on GitHub
+1. Open `[https://github.com/iyeanur6-cyber/UltimateOS/edit/main/README.md](https://github.com/iyeanur6-cyber/UltimateOS/edit/main/README.md)` in Brave Browser.
+2. Select all existing text (`Ctrl + A`), paste the block above (`Ctrl + V`), and click **Commit changes...** in the top-right corner.
+3. *(Optional)* To pull this updated `README.md` back down to your local `~/UltimateOS` folder so your laptop stays synced with GitHub, run `cd ~/UltimateOS && git pull origin main` in your terminal.
