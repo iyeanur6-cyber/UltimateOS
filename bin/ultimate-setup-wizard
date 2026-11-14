@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+if grep -q "boot=casper" /proc/cmdline; then
+  exit 0
+fi
+
+mintwelcome &
+
+CHOICE=$(zenity --list --checklist \
+  --title="UltimateOS Optional Software" \
+  --text="Keep your system lean—select optional suites to install now (or install anytime via Software Manager):" \
+  --column="Install" --column="Suite" --column="Description" \
+  TRUE "Gaming & Windows Layer" "Wine + Winetricks for Windows apps and PC games" \
+  FALSE "Office Suite" "LibreOffice Writer, Calc, and Impress" \
+  --width=560 --height=280 2>/dev/null)
+
+if [ -n "$CHOICE" ]; then
+  PKGS=""
+  echo "$CHOICE" | grep -q "Gaming" && PKGS="$PKGS wine-installer winetricks"
+  echo "$CHOICE" | grep -q "Office" && PKGS="$PKGS libreoffice"
+  if [ -n "$PKGS" ]; then
+    x-terminal-emulator -e bash -c "sudo apt update && sudo apt install -y $PKGS; echo 'Done! Press Enter to close.'; read"
+  fi
+fi
+
+rm -f "$HOME/.config/autostart/ultimate-setup-wizard.desktop"
