@@ -247,6 +247,110 @@
       "project_name": "DivAcerManagerMax (DAMX) / nbfc-linux",
       "repo_url": "https://github.com/PXDiv/Div-Acer-Manager-Max",
       "features": "Fan Speed Control, Thermal Modes & Keyboard Backlight"
+    },
+    {
+      "vendor_match": "Micro-Star|MSI",
+      "model_match": "Titan|GT77|GT80|HX|Vector|GP68|GP78|Raider|GE68|GE78",
+      "display_name": "MSI Titan / Raider / Vector Flagship Series",
+      "project_name": "MControlCenter + msi-ec + OpenRGB",
+      "repo_url": "https://github.com/dmitry-s93/MControlCenter",
+      "features": "Custom Fan Curves, Cooler Boost, Extreme Performance & Per-Key RGB"
+    },
+    {
+      "vendor_match": "Micro-Star|MSI",
+      "model_match": "Katana|Sword|Cyborg|Thin|GF63|GF65|GF66|GF76|B12V|B13V|A12V|A13V|15 B12|15 B13",
+      "display_name": "MSI Katana / Sword / Cyborg / Thin Budget Gaming Series",
+      "project_name": "MControlCenter + msi-ec",
+      "repo_url": "https://github.com/dmitry-s93/MControlCenter",
+      "features": "Custom Fan Speed Curves, Cooler Boost, Silent/Super Battery & Charge Limit"
+    },
+    {
+      "vendor_match": "Micro-Star|MSI",
+      "model_match": "Bravo|Alpha|Delta|Crosshair|Pulse|GL66|GL76|B5DD|B7E|C7V|15 B5|15 B7|15 C7",
+      "display_name": "MSI Bravo / Alpha / Pulse / Crosshair Series",
+      "project_name": "MControlCenter + msi-ec + OpenRGB",
+      "repo_url": "https://github.com/dmitry-s93/MControlCenter",
+      "features": "Fan Speed Control, Cooler Boost, Thermal Profiles & Keyboard RGB"
+    },
+    {
+      "vendor_match": "Micro-Star|MSI",
+      "model_match": "Modern|Prestige|Summit|Creator|Venture|E14|E16|A11M|A12M|B12M|B13M|MS-14|MS-15|MS-16|MS-17",
+      "display_name": "MSI Modern / Prestige / Summit / Creator Series",
+      "project_name": "MControlCenter + msi-ec",
+      "repo_url": "https://github.com/dmitry-s93/MControlCenter",
+      "features": "Silent/Balanced/Performance Fan Profiles, Backlight & Battery Thresholds"
+    },
+    {
+      "vendor_match": "ASUS",
+      "model_match": "G512|G513|G531|G532|G533|G614|G634|G712|G713|G731|G732|G733|G814|G834|G615|G815",
+      "display_name": "ASUS ROG Strix G15 / G16 / G17 / G18 & Scar Series",
+      "project_name": "asusctl & ROG Control Center (asus-linux.org)",
+      "repo_url": "https://gitlab.com/asus-linux/asusctl",
+      "features": "8-Point Custom Fan Curves, Aura Sync RGB, GPU MUX & Charge Limit"
+    },
+    {
+      "vendor_match": "ASUS",
+      "model_match": "GA401|GA402|GA403|GA502|GA503|GA605|GU502|GU603|GU604|GU605|GX502|GX531|GX550|GX551|GX650|GX701|GX703",
+      "display_name": "ASUS ROG Zephyrus G14 / G15 / G16 / M16 / Duo Series",
+      "project_name": "asusctl & ROG Control Center (asus-linux.org)",
+      "repo_url": "https://gitlab.com/asus-linux/asusctl",
+      "features": "Custom Fan Curves, Slash/AniMe Matrix Lighting, MUX Switch & Charge Limit"
+    },
+    {
+      "vendor_match": "ASUS",
+      "model_match": "FA506|FA507|FA607|FA608|FA617|FA706|FA707|FX505|FX506|FX507|FX516|FX517|FX607|FX608|FX706|FX707|TUF Gaming",
+      "display_name": "ASUS TUF Gaming A15 / A16 / A17 / F15 / F16 / F17 Series",
+      "project_name": "asusctl & ROG Control Center (asus-linux.org)",
+      "repo_url": "https://gitlab.com/asus-linux/asusctl",
+      "features": "Custom CPU/GPU Fan Curves, TUF Aura RGB, MUX Switch & Battery Limit"
+    },
+    {
+      "vendor_match": "ASUS",
+      "model_match": "GV301|GV302|GV601|GZ301|GZ302|Flow X13|Flow X16|Flow Z13",
+      "display_name": "ASUS ROG Flow X13 / X16 / Z13 Series",
+      "project_name": "asusctl & ROG Control Center (asus-linux.org)",
+      "repo_url": "https://gitlab.com/asus-linux/asusctl",
+      "features": "Tablet/Tent Thermal Profiles, Custom Fan Curves & XG Mobile Support"
+    },
+    {
+      "vendor_match": "LENOVO",
+      "model_match": "15IRX9|15IRX10|15ARP8|15APH8|15IAX9|15AHP9|16IRX9|16IRX10|16ARP9|16AHP9|15AMH9|LOQ",
+      "display_name": "Lenovo LOQ 15 / 16 Gaming Series (Intel & AMD)",
+      "project_name": "LenovoLegionLinux (legion_laptop)",
+      "repo_url": "https://github.com/johnfanv2/LenovoLegionLinux",
+      "features": "Custom Fan Curves, Quiet/Balanced/Performance Modes, RGB & Rapid Charge"
+    },
+    {
+      "vendor_match": "LENOVO",
+      "model_match": "16IRX8|16IRX9|16IAX10|16IRH8|16APH8|16APH9|16ARX8|16ARX9|16ACH6|16IAH7|16ARH7|16IMH9|16IRX9H",
+      "display_name": "Lenovo Legion 5 / Legion Pro 5 / Legion Slim 5 (16-inch)",
+      "project_name": "LenovoLegionLinux (legion_laptop)",
+      "repo_url": "https://github.com/johnfanv2/LenovoLegionLinux",
+      "features": "Custom Fan Table, Thermal Modes, 4-Zone/Per-Key RGB & Conservation Mode"
+    },
+    {
+      "vendor_match": "LENOVO",
+      "model_match": "16IRX8H|16IRX9H|16IAX9H|16ACHg6|16IAHg7|16ARHa7|18IRX8|Legion 7|Legion Pro 7|Legion 9",
+      "display_name": "Lenovo Legion 7 / Legion Pro 7 / Legion 9i Flagship Series",
+      "project_name": "LenovoLegionLinux (legion_laptop) + OpenRGB",
+      "repo_url": "https://github.com/johnfanv2/LenovoLegionLinux",
+      "features": "Full EC Fan Curve Control, Custom TDP, Per-Key Spectrum RGB & Battery Care"
+    },
+    {
+      "vendor_match": "LENOVO",
+      "model_match": "R7000|R9000|Y7000|Y9000|82B1|82B5|82JU|82JQ|82K2|82K6|82RF|82RB|82WQ|82WR|83DG|83DF|83DV|83LY|83F6",
+      "display_name": "Lenovo Legion R7000 / R9000 / Y7000 / Y9000 & Type Codes",
+      "project_name": "LenovoLegionLinux (legion_laptop)",
+      "repo_url": "https://github.com/johnfanv2/LenovoLegionLinux",
+      "features": "Custom Fan Curves, Thermal Profiles, Keyboard Backlight & Rapid Charge"
+    },
+    {
+      "vendor_match": "LENOVO",
+      "model_match": "15ACH6|15ARH7|15IAH7|15IHU6|15IMH05|15ARH05|IdeaPad Gaming",
+      "display_name": "Lenovo IdeaPad Gaming 3 Series",
+      "project_name": "LenovoLegionLinux / ideapad-laptop",
+      "repo_url": "https://github.com/johnfanv2/LenovoLegionLinux",
+      "features": "Performance/Quiet/Balanced Cooling Modes, RGB Keyboard & Conservation Mode"
     }
   ],
   "fallback_laptop": {
