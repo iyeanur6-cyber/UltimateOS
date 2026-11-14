@@ -10,47 +10,63 @@
     },
     {
       "vendor_match": "Acer",
-      "model_match": "Nitro|Predator|Helios|Triton",
-      "display_name": "Acer Nitro / Predator Series",
+      "model_match": "Nitro|AN515|ANV15|AN16|AN17",
+      "display_name": "Acer Nitro Gaming Series (Nitro 5 / Nitro V 15 / Nitro 16)",
       "project_name": "DivAcerManagerMax (DAMX) / predator-linux-module",
       "repo_url": "https://github.com/PXDiv/Div-Acer-Manager-Max",
-      "features": "Fan Speed Control, Power Modes & 4-Zone RGB Keyboard"
+      "features": "Fan Speed Control, Power Profiles & 4-Zone RGB Keyboard"
     },
     {
       "vendor_match": "Acer",
-      "model_match": "Aspire|Swift|TravelMate",
-      "display_name": "Acer Aspire / Swift Series",
+      "model_match": "Predator|Helios|Triton|PH315|PHN16|PT314",
+      "display_name": "Acer Predator Helios / Triton Series",
+      "project_name": "DivAcerManagerMax (DAMX) / predator-linux-module",
+      "repo_url": "https://github.com/PXDiv/Div-Acer-Manager-Max",
+      "features": "Turbo Mode, Custom Fan Curves & Per-Key / 4-Zone RGB"
+    },
+    {
+      "vendor_match": "Acer",
+      "model_match": "Aspire|Swift|TravelMate|Extensa",
+      "display_name": "Acer Aspire / Swift / TravelMate Series",
       "project_name": "nbfc-linux (NoteBook FanControl)",
       "repo_url": "https://github.com/nbfc-linux/nbfc-linux",
       "features": "EC Fan Curve Profiles & Silent/Performance Switching"
     },
     {
       "vendor_match": "HP|Hewlett-Packard",
-      "model_match": "OMEN|Victus",
-      "display_name": "HP OMEN / Victus Gaming Series",
-      "project_name": "omen-fan",
+      "model_match": "Victus|15-fa|15-fb|16-d|16-e|16-r|16-s",
+      "display_name": "HP Victus Gaming Series (Victus 15 / Victus 16)",
+      "project_name": "omen-fan / hp-wmi-fan-and-backlight-control",
       "repo_url": "https://github.com/alou-S/omen-fan",
-      "features": "Manual/Auto Fan Speed Control & Thermal Performance Modes"
+      "features": "Manual/Auto/Max Fan Speed Control, Thermal Modes & Keyboard Backlight"
     },
     {
       "vendor_match": "HP|Hewlett-Packard",
-      "model_match": "Pavilion|Envy|ProBook|EliteBook|ZBook",
-      "display_name": "HP Pavilion / Envy / ProBook Series",
+      "model_match": "OMEN|Transcend|16-wf|16-wd|16-xd|16-xf|17-ck|17-cm",
+      "display_name": "HP OMEN Gaming Series (OMEN 15 / 16 / 17 / Transcend)",
+      "project_name": "omen-fan + OpenRGB",
+      "repo_url": "https://github.com/alou-S/omen-fan",
+      "features": "Custom Fan Curves, Performance Control & 4-Zone RGB Keyboard"
+    },
+    {
+      "vendor_match": "HP|Hewlett-Packard",
+      "model_match": "Pavilion|Envy|ProBook|EliteBook|ZBook|Aero",
+      "display_name": "HP Pavilion / Envy / ProBook / EliteBook Series",
       "project_name": "nbfc-linux (NoteBook FanControl)",
       "repo_url": "https://github.com/nbfc-linux/nbfc-linux",
       "features": "EC Fan Curve Profiles & Thermal Management"
     },
     {
       "vendor_match": "LENOVO",
-      "model_match": "Legion|LOQ|IdeaPad Gaming",
+      "model_match": "Legion|LOQ|15IRX9|15APH8|15ARP8|16IRX9|16APH8|IdeaPad Gaming",
       "display_name": "Lenovo Legion / LOQ / IdeaPad Gaming Series",
       "project_name": "LenovoLegionLinux (legion_laptop)",
       "repo_url": "https://github.com/johnfanv2/LenovoLegionLinux",
-      "features": "Custom Fan Curves, Thermal Modes, Keyboard RGB & Rapid Charge"
+      "features": "Custom Fan Curves, Thermal Modes, 4-Zone/Per-Key RGB & Rapid Charge"
     },
     {
       "vendor_match": "LENOVO",
-      "model_match": "ThinkPad",
+      "model_match": "ThinkPad|T14|T16|P1|P14s|P16|X1|L14|E14",
       "display_name": "Lenovo ThinkPad Series",
       "project_name": "thinkfan (thinkpad_acpi)",
       "repo_url": "https://github.com/vmatare/thinkfan",
@@ -58,19 +74,35 @@
     },
     {
       "vendor_match": "LENOVO",
-      "model_match": "IdeaPad|Yoga",
-      "display_name": "Lenovo IdeaPad / Yoga Series",
+      "model_match": "IdeaPad|Yoga|Slim",
+      "display_name": "Lenovo IdeaPad / Yoga / Slim Series",
       "project_name": "nbfc-linux (NoteBook FanControl)",
       "repo_url": "https://github.com/nbfc-linux/nbfc-linux",
       "features": "EC Fan Curve Profiles & Battery Conservation Mode"
     },
     {
+      "vendor_match": "ASUS",
+      "model_match": "ROG|TUF|Zephyrus|Strix|Scar|Flow|FA506|FA507|FX506|FX507|G513|G614|GA402|GU603",
+      "display_name": "ASUS ROG / TUF Gaming Series",
+      "project_name": "asusctl & ROG Control Center (asus-linux.org)",
+      "repo_url": "https://gitlab.com/asus-linux/asusctl",
+      "features": "Custom Fan Curves, Aura RGB, GPU MUX Switch & Charge Limit"
+    },
+    {
+      "vendor_match": "ASUS",
+      "model_match": "VivoBook|ZenBook|ExpertBook|ProArt",
+      "display_name": "ASUS VivoBook / ZenBook / ProArt Series",
+      "project_name": "asusctl / nbfc-linux",
+      "repo_url": "https://gitlab.com/asus-linux/asusctl",
+      "features": "Whisper/Standard/Performance Fan Profiles & Battery Charge Limit"
+    },
+    {
       "vendor_match": "Dell",
-      "model_match": "Alienware|G15|G16|G3|G5|G7",
+      "model_match": "Alienware|G15|G16|G3|G5|G7|m15|m16|m18|x14|x15|x16",
       "display_name": "Dell Alienware / G-Series Gaming",
       "project_name": "AlienFX Tools (alienfx-tools) + i8kutils",
       "repo_url": "https://github.com/T-Troll/alienfx-tools",
-      "features": "AlienFX RGB Lighting, Thermal Modes & Fan Speed Control"
+      "features": "AlienFX RGB Lighting, G-Mode Thermal Profiles & Fan Speed Control"
     },
     {
       "vendor_match": "Dell",
@@ -81,20 +113,28 @@
       "features": "BIOS Fan Override & Manual/Auto Fan Speed Control"
     },
     {
-      "vendor_match": "ASUS",
-      "model_match": "ROG|TUF|Zephyrus|Strix",
-      "display_name": "ASUS ROG / TUF Gaming Series",
-      "project_name": "asusctl & ROG Control Center (asus-linux.org)",
-      "repo_url": "https://gitlab.com/asus-linux/asusctl",
-      "features": "Custom Fan Curves, Aura RGB, GPU MUX & Charge Limit"
-    },
-    {
       "vendor_match": "Micro-Star|MSI",
-      "model_match": "Katana|Cyborg|Raider|Stealth|Pulse|Vector|Thin",
+      "model_match": "Katana|Cyborg|Raider|Stealth|Pulse|Vector|Thin|Bravo|Alpha|Crosshair|GP66|GE76|GF63",
       "display_name": "MSI Gaming Laptop Series",
       "project_name": "MControlCenter + msi-ec",
       "repo_url": "https://github.com/dmitry-s93/MControlCenter",
-      "features": "Fan Speed, Cooler Boost & Battery Thresholds"
+      "features": "Custom Fan Speed, Cooler Boost & Battery Charge Thresholds"
+    },
+    {
+      "vendor_match": "GIGABYTE|AORUS",
+      "model_match": "G5|G7|AORUS|AERO",
+      "display_name": "Gigabyte G5 / AORUS / AERO Series",
+      "project_name": "gigabyte-laptop-wmi / nbfc-linux",
+      "repo_url": "https://github.com/tangalbert919/gigabyte-laptop-wmi",
+      "features": "Fan Speed Profiles, Keyboard Backlight & Charge Limit"
+    },
+    {
+      "vendor_match": "Razer",
+      "model_match": "Blade",
+      "display_name": "Razer Blade Gaming Series",
+      "project_name": "OpenRazer + Polychromatic",
+      "repo_url": "https://github.com/openrazer/openrazer",
+      "features": "Per-Key Chroma RGB, Fan RPM Control & Power Modes"
     }
   ],
   "fallback_laptop": {
