@@ -48,7 +48,7 @@ UltimateOS `v1.0.0` has been built, daily-driven on bare-metal hardware, and ver
 
 ## 🚀 Download Release (`v1.0.0`)
 
-Download the release assets from the **[UltimateOS v1.0.0 Releases Page](https://github.com/iyeanur6-cyber/UltimateOS/releases/tag/v1.0.0)**.
+Download the release assets from the **[UltimateOS v1.0.0 Releases Page](https://github.com/iyeanur6-cyber/UltimateOS/releases/tag/untagged-e444e23c43ad0dfec933)**.
 
 Because GitHub Releases enforces a 2 GB limit per file, the **3.32 GiB** bootable ISO is distributed as two `.zip` parts alongside its SHA256 and MD5 checksum files:
 - `UltimateOS-22.3-amd64-part1.zip` (~1.8 GB)
