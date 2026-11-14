@@ -1,0 +1,127 @@
+#!/usr/bin/env python3
+import json
+import os
+import re
+import subprocess
+import urllib.request
+import webbrowser
+
+GITHUB_DB_URL = "https://raw.githubusercontent.com/iyeanur6-cyber/UltimateOS/main/configs/hardware-db.json"
+
+def read_dmi(field):
+    path = f"/sys/class/dmi/id/{field}"
+    try:
+        with open(path, "r", encoding="utf-8", errors="ignore") as f:
+            return f.read().strip()
+    except OSError:
+        return "Unknown"
+
+def is_laptop():
+    # SMBIOS Chassis Types: 8=Portable, 9=Laptop, 10=Notebook, 14=Sub Notebook, 30=Tablet, 31=Convertible, 32=Detachable
+    laptop_codes = {"8", "9", "10", "14", "30", "31", "32"}
+    if read_dmi("chassis_type") in laptop_codes:
+        return True
+    try:
+        for entry in os.listdir("/sys/class/power_supply"):
+            if entry.startswith("BAT"):
+                return True
+    except OSError:
+        pass
+    return False
+
+def fetch_github_db():
+    req = urllib.request.Request(
+        GITHUB_DB_URL,
+        headers={"User-Agent": "UltimateOS-Hardware-Advisor/1.0"}
+    )
+    with urllib.request.urlopen(req, timeout=8) as resp:
+        return json.loads(resp.read().decode("utf-8"))
+
+def show_error(msg):
+    subprocess.run([
+        "zenity", "--error",
+        "--title=UltimateOS Hardware Fan & RGB Advisor",
+        "--text=" + msg,
+        "--width=480"
+    ])
+
+def main():
+    try:
+        db = fetch_github_db()
+    except Exception as e:
+        show_error(
+            "Unable to fetch the latest hardware database from UltimateOS GitHub.\n"
+            "Please check your internet connection and try again.\n\n"
+            f"Details: {e}"
+        )
+        return
+
+    vendor = read_dmi("sys_vendor")
+    model = read_dmi("product_name")
+    board = read_dmi("board_name")
+    laptop = is_laptop()
+
+    if laptop:
+        form_factor = "Laptop / Notebook"
+        matched = None
+        for entry in db.get("laptops", []):
+            if re.search(entry["vendor_match"], vendor, re.IGNORECASE) and (
+                re.search(entry["model_match"], model, re.IGNORECASE)
+                or re.search(entry["model_match"], board, re.IGNORECASE)
+            ):
+                matched = entry
+                break
+
+        if matched:
+            rec_title = matched["display_name"]
+            project = matched["project_name"]
+            repo_url = matched["repo_url"]
+            features = matched["features"]
+        else:
+            rec_title = f"{vendor} {model} (Generic Laptop)"
+            fb = db["fallback_laptop"]
+            project = fb["project_name"]
+            repo_url = fb["repo_url"]
+            features = fb["features"]
+    else:
+        form_factor = "Desktop / Custom PC"
+        rec_title = f"Custom / Desktop PC ({board})"
+        pc = db["desktop_pc"]
+        project = pc["project_name"]
+        repo_url = pc["repo_url"]
+        features = pc["features"]
+
+    disclaimer = (
+        "⚠️ IMPORTANT DISCLAIMER:\n"
+        "This fan and RGB control software is NOT made, maintained, or verified by UltimateOS.\n"
+        "Use it at your OWN CHOICE and OWN RISK.\n"
+        "UltimateOS is NOT responsible for any security issues, bugs, hardware behavior, "
+        "or any fan and RGB related issues."
+    )
+
+    body = (
+        f"Detected System Type:   {form_factor}\n"
+        f"Brand / Vendor:         {vendor}\n"
+        f"Model / Motherboard:    {model} ({board})\n"
+        f"Matched Profile:        {rec_title}\n\n"
+        f"Recommended Open-Source Project (via UltimateOS GitHub DB):\n"
+        f"• Project:    {project}\n"
+        f"• Features:   {features}\n"
+        f"• Repository: {repo_url}\n\n"
+        f"{disclaimer}"
+    )
+
+    res = subprocess.run([
+        "zenity",
+        "--question",
+        "--title=UltimateOS Hardware Fan & RGB Advisor",
+        "--text=" + body,
+        "--ok-label=I Understand — Open Project Repo",
+        "--cancel-label=Close",
+        "--width=640",
+    ])
+    if res.returncode == 0:
+        webbrowser.open(repo_url)
+
+if __name__ == "__main__":
+    main()

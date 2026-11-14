@@ -1,0 +1,62 @@
+{
+  "laptops": [
+    {
+      "vendor_match": "Acer",
+      "model_match": "ALG",
+      "display_name": "Acer ALG Gaming Series",
+      "project_name": "DivAcerManagerMax (DAMX) / alg-daemon",
+      "repo_url": "https://github.com/PXDiv/Div-Acer-Manager-Max",
+      "features": "Fan Speed Control, Power Profiles & Keyboard Backlight"
+    },
+    {
+      "vendor_match": "Acer",
+      "model_match": "Nitro|Predator",
+      "display_name": "Acer Nitro / Predator Series",
+      "project_name": "DivAcerManagerMax (DAMX)",
+      "repo_url": "https://github.com/PXDiv/Div-Acer-Manager-Max",
+      "features": "Fan Curve Control, Thermal Modes & 4-Zone RGB Keyboard"
+    },
+    {
+      "vendor_match": "ASUS",
+      "model_match": "ROG|TUF|Zephyrus|Strix",
+      "display_name": "ASUS ROG / TUF Gaming Series",
+      "project_name": "asusctl & ROG Control Center (asus-linux.org)",
+      "repo_url": "https://gitlab.com/asus-linux/asusctl",
+      "features": "Custom Fan Curves, Aura RGB, GPU MUX & Charge Limit"
+    },
+    {
+      "vendor_match": "LENOVO",
+      "model_match": "Legion|LOQ|IdeaPad Gaming",
+      "display_name": "Lenovo Legion / LOQ Series",
+      "project_name": "LenovoLegionLinux (legion_laptop)",
+      "repo_url": "https://github.com/johnfanv2/LenovoLegionLinux",
+      "features": "Fan Control, Power Modes, Keyboard RGB & Rapid Charge"
+    },
+    {
+      "vendor_match": "Micro-Star|MSI",
+      "model_match": "Katana|Cyborg|Raider|Stealth|Pulse|Vector|Thin",
+      "display_name": "MSI Gaming Laptop Series",
+      "project_name": "MControlCenter + msi-ec",
+      "repo_url": "https://github.com/dmitry-s93/MControlCenter",
+      "features": "Fan Speed, Cooler Boost & Battery Thresholds"
+    },
+    {
+      "vendor_match": "HP|Hewlett-Packard",
+      "model_match": "OMEN|Victus",
+      "display_name": "HP OMEN / Victus Series",
+      "project_name": "omen-fan",
+      "repo_url": "https://github.com/alou-S/omen-fan",
+      "features": "Fan Speed Control & Performance Modes"
+    }
+  ],
+  "fallback_laptop": {
+    "project_name": "OpenRGB",
+    "repo_url": "https://gitlab.com/CalcProgrammer1/OpenRGB",
+    "features": "Universal Keyboard & Peripheral RGB Lighting Sync"
+  },
+  "desktop_pc": {
+    "project_name": "CoolerControl + OpenRGB",
+    "repo_url": "https://gitlab.com/coolercontrol/coolercontrol",
+    "features": "Motherboard/AIO Fan Curves, GPU Fans & Case RGB Sync"
+  }
+}

@@ -27,3 +27,7 @@ echo "UltimateOS Installed! Log out and back in to apply full UI."
 sudo cp -f bin/ultimate-ai.sh /usr/local/bin/ultimate-ai.sh
 sudo chmod +x /usr/local/bin/ultimate-ai.sh
 dconf load /org/cinnamon/desktop/keybindings/ < configs/cinnamon-keybindings.ini
+
+# Install UltimateOS Cloud-DB Hardware Fan & RGB Advisor
+sudo cp -f bin/ultimate-hw-advisor /usr/local/bin/ultimate-hw-advisor
+sudo chmod +x /usr/local/bin/ultimate-hw-advisor
