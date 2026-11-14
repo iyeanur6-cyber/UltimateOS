@@ -43,6 +43,11 @@ UltimateOS `v1.0.0` has been built, daily-driven on bare-metal hardware, and ver
 | **Primary Host Laptop** | **Acer ALG (AL15G-53)**<br>• CPU: Intel Core i5-13420H<br>• GPU: NVIDIA GeForce RTX 3050 Mobile (4 GB VRAM)<br>• RAM: 16 GB DDR4<br>• Storage: 512 GB NVMe SSD | **~1.6 GiB** (full desktop + Quick Settings + BlurCinnamon active) | ColorOS Quick Settings (`#2aa6a6`), WhiteSur Dark theme & icons, Cinnamenu, BlurCinnamon, Brave Browser, custom keybindings, PipeWire/WirePlumber audio & brightness controls |
 | **Live ISO Virtualization** | **QEMU / KVM (`x86_64`)**<br>• Boot Mode: BIOS / UEFI Live Session | **~1.6–1.8 GiB** (Live `squashfs` overlay) | Custom Neon Penguin Plymouth boot splash, Brave Browser default browser, WhiteSur icons, top bar, Terminal traffic-light window controls, Quick Settings daemon (`quick_settings.app`) |
 
+
+<p align="center">
+  <img src="assets/ram-usage.png" alt="UltimateOS Idle Memory Footprint (free -h)" width="680" />
+</p>
+
 ### System Requirements
 
 | Component | Minimum | Recommended |
