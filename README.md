@@ -1,9 +1,18 @@
 # UltimateOS (Linux Mint 22.3 Edition)
+
 <p align="center">
   <img src="boot-logo.png" alt="UltimateOS Neon Penguin Emblem" width="220" />
 </p>
 
 **Dream • Customize • Use** — **UltimateOS** is a modern, lightweight desktop distribution built on **Linux Mint 22.3 (*Zena* / Ubuntu 24.04 LTS base)** with the Cinnamon desktop environment. It combines the rock-solid stability and official updates of Linux Mint with a custom **ColorOS-inspired translucent glass Quick Settings panel**, custom Neon Penguin Plymouth boot branding, a streamlined top-bar layout, WhiteSur themes and icons, and **Brave Browser** pre-installed out of the box.
+
+---
+
+## 🖼️ Screenshots & UI Showcase
+
+| ColorOS-Inspired Quick Settings Panel | Desktop, App Menu & Window Controls |
+| :---: | :---: |
+| ![ColorOS Quick Settings](assets/quick-settings.png) | ![UltimateOS Desktop & App Menu](assets/app-menu-windows.png) |
 
 ---
 
@@ -13,9 +22,6 @@
   - Translucent dark-glass control center with calm `#2aa6a6` teal active highlights and crisp high-contrast labels.
   - Interactive **Wi-Fi** and **Bluetooth** device drawers powered by `blueman-manager` with automatic `rfkill` soft-block clearing.
   - One-click toggles for **Night Light**, **Power Saver**, **Mute Mic**, **Camera (`cheese`)**, **Airplane Mode**, **Do Not Disturb**, and **Dark Mode**.
-  -<p align="center">
-  <img src="../assets/quick-settings.png" alt="ColorOS-inspired Quick Settings Panel for Cinnamon" width="460" />
-</p>
   - Unified brightness (`brightnessctl`) and PipeWire volume (`wpctl`) sliders with live media controls.
 - **Modern Top-Bar Desktop Layout:**
   - Streamlined Cinnamon top panel with Cinnamenu, BlurCinnamon, WhiteSur themes/icons, and curated wallpaper applied automatically via `dconf`.
@@ -54,7 +60,7 @@ UltimateOS `v1.0.0` has been built, daily-driven on bare-metal hardware, and ver
 
 ## 🚀 Download Release (`v1.0.0`)
 
-Download the release assets from the **[UltimateOS v1.0.0 Releases Page](https://github.com/iyeanur6-cyber/UltimateOS/releases/tag/untagged-e444e23c43ad0dfec933)**.
+Download the release assets from the **[UltimateOS v1.0.0 Releases Page](https://github.com/iyeanur6-cyber/UltimateOS/releases/tag/v1.0.0)**.
 
 Because GitHub Releases enforces a 2 GB limit per file, the **3.32 GiB** bootable ISO is distributed as two `.zip` parts alongside its SHA256 and MD5 checksum files:
 - `UltimateOS-22.3-amd64-part1.zip` (~1.8 GB)
@@ -66,7 +72,7 @@ Because GitHub Releases enforces a 2 GB limit per file, the **3.32 GiB** bootabl
 
 ## 📦 Step 1: Merge, Extract & Verify the ISO
 
-1. Download **all four files** from the [Releases Page](https://github.com/iyeanur6-cyber/UltimateOS/releases/tag/untagged-e444e23c43ad0dfec933) into the same folder (for example, `~/Downloads`).
+1. Download **all four files** from the [Releases Page](https://github.com/iyeanur6-cyber/UltimateOS/releases/tag/v1.0.0) into the same folder (for example, `~/Downloads`).
 2. Open a terminal in that folder, merge the two split `.zip` parts, and extract `UltimateOS-22.3-amd64.iso`:
    ```bash
    mv UltimateOS-22.3-amd64-part1.zip UltimateOS-22.3-amd64.z01 && \
