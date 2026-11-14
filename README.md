@@ -60,7 +60,7 @@ Because GitHub Releases enforces a 2 GB limit per file, the **3.32 GiB** bootabl
 
 ## 📦 Step 1: Merge, Extract & Verify the ISO
 
-1. Download **all four files** from the [Releases Page](https://github.com/iyeanur6-cyber/UltimateOS/releases/tag/v1.0.0) into the same folder (for example, `~/Downloads`).
+1. Download **all four files** from the [Releases Page](https://github.com/iyeanur6-cyber/UltimateOS/releases/tag/untagged-e444e23c43ad0dfec933) into the same folder (for example, `~/Downloads`).
 2. Open a terminal in that folder, merge the two split `.zip` parts, and extract `UltimateOS-22.3-amd64.iso`:
    ```bash
    mv UltimateOS-22.3-amd64-part1.zip UltimateOS-22.3-amd64.z01 && \
