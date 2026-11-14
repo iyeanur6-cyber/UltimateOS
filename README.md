@@ -1,7 +1,7 @@
 # UltimateOS (Linux Mint 22.3 Edition)
 
 <p align="center">
-  <img src="boot-logo.png" alt="UltimateOS Neon Penguin Emblem" width="220" />
+  <img src="boot-logo.png.png" alt="UltimateOS Neon Penguin Emblem" width="220" />
 </p>
 
 **Dream • Customize • Use** — **UltimateOS** is a modern, lightweight desktop distribution built on **Linux Mint 22.3 (*Zena* / Ubuntu 24.04 LTS base)** with the Cinnamon desktop environment. It combines the rock-solid stability and official updates of Linux Mint with a custom **ColorOS-inspired translucent glass Quick Settings panel**, custom Neon Penguin Plymouth boot branding, a streamlined top-bar layout, WhiteSur themes and icons, and **Brave Browser** pre-installed out of the box.
