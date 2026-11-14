@@ -22,3 +22,8 @@ sed "s|\$HOME|$HOME|g" ./cinnamon-dconf.ini | dconf load /org/cinnamon/
 WP=$(ls ~/Pictures/Wallpapers/default-wallpaper.* 2>/dev/null | head -n 1); [ -n "$WP" ] && gsettings set org.cinnamon.desktop.background picture-uri "file://$WP"
 pkill -f "/usr/local/bin/quick-settings-coloros" 2>/dev/null || true; nohup python3 /usr/local/bin/quick-settings-coloros >/dev/null 2>&1 &
 echo "UltimateOS Installed! Log out and back in to apply full UI."
+
+# Install UltimateOS Hardware Copilot AI Launcher & Shortcuts
+sudo cp -f bin/ultimate-ai.sh /usr/local/bin/ultimate-ai.sh
+sudo chmod +x /usr/local/bin/ultimate-ai.sh
+dconf load /org/cinnamon/desktop/keybindings/ < configs/cinnamon-keybindings.ini
