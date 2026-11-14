@@ -143,3 +143,43 @@ Run this single line in your laptop terminal (`~/UltimateOS`) after adding the s
 
 ```bash
 cd ~/UltimateOS && git add README.md && git commit -m "Docs: Add v1.0.0 release download, extraction, and installation guide" && git push origin main
+```
+
+---
+
+## 🧪 Tested Hardware & Verification Matrix
+
+UltimateOS `v1.0.0` has been built, daily-driven on bare-metal hardware, and verified in QEMU/KVM Live ISO sessions:
+
+| Test Environment | Hardware / VM Configuration | Idle RAM (`free -h`) | Verified Components |
+| :--- | :--- | :--- | :--- |
+| **Primary Host Laptop** | **Acer ALG (AL15G-53)**<br>• CPU: Intel Core i5-13420H<br>• GPU: NVIDIA GeForce RTX 3050 Mobile (4 GB VRAM)<br>• RAM: 16 GB DDR4<br>• Storage: 512 GB NVMe SSD | **~1.6 GiB** (full desktop + Quick Settings + BlurCinnamon active) | ColorOS Quick Settings (`#2aa6a6`), WhiteSur Dark theme & icons, Cinnamenu, BlurCinnamon, Brave Browser, custom keybindings, PipeWire/WirePlumber audio & brightness controls |
+| **Live ISO Virtualization** | **QEMU / KVM (`x86_64`)**<br>• Boot Mode: BIOS / UEFI Live Session | **~1.6–1.8 GiB** (Live `squashfs` overlay) | Custom Neon Penguin Plymouth boot splash, Brave Browser default browser, WhiteSur icons, top bar, Terminal traffic-light window controls, Quick Settings daemon (`quick_settings.app`) |
+
+### Known Notes in `v1.0.0` (Tracked for `v1.1.0`)
+* **CSD / Flatpak Window Controls:** Native X11/GTK windows (such as Terminal) display left-aligned traffic lights (`close,minimize,maximize:`) out of the box. Certain Client-Side Decorated (CSD) apps like Nemo and sandboxed Flatpak apps may still default to right-side buttons in the Live session until overridden via `gsettings set org.cinnamon.desktop.interface gtk-decoration-layout 'close,minimize,maximize:'`.
+* **Live Session System Tray:** In minimal VM configurations, `systray@cinnamon.org` may need to be enabled in Panel Applets if the Quick Settings tray icon is hidden on first Live boot.
+
+---
+
+## 🚀 Download Release (`v1.0.0`)
+
+Download the release assets from the **[UltimateOS v1.0.0 Releases Page](https://github.com/iyeanur6-cyber/UltimateOS/releases/tag/v1.0.0)**.
+
+Because GitHub Releases enforces a 2 GB limit per file, the **3.32 GiB** bootable ISO is packaged as two `.zip` parts along with SHA256 and MD5 checksum files:
+* `UltimateOS-22.3-amd64-part1.zip` (~1.8 GB)
+* `UltimateOS-22.3-amd64-part2.zip` (~1.5 GB)
+* `UltimateOS-22.3-amd64-sha256.txt`
+* `UltimateOS-22.3-amd64-md5.txt`
+
+---
+
+## 📦 Step 1: Merge, Extract & Verify the ISO
+
+1. Download **all four files** from the [Releases Page](https://github.com/iyeanur6-cyber/UltimateOS/releases/tag/v1.0.0) into the same directory (e.g., `~/Downloads`).
+2. Open a terminal in that directory, reassemble the split `.zip` archive, and extract `UltimateOS-22.3-amd64.iso`:
+   ```bash
+   mv UltimateOS-22.3-amd64-part1.zip UltimateOS-22.3-amd64.z01 && \
+   mv UltimateOS-22.3-amd64-part2.zip UltimateOS-22.3-amd64.zip && \
+   zip -F UltimateOS-22.3-amd64.zip --out UltimateOS-full.zip && \
+   unzip UltimateOS-full.zip
