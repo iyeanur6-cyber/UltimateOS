@@ -31,3 +31,22 @@ dconf load /org/cinnamon/desktop/keybindings/ < configs/cinnamon-keybindings.ini
 # Install UltimateOS Cloud-DB Hardware Fan & RGB Advisor
 sudo cp -f bin/ultimate-hw-advisor /usr/local/bin/ultimate-hw-advisor
 sudo chmod +x /usr/local/bin/ultimate-hw-advisor
+
+# Add Hardware Fan & RGB Advisor button to Mint Welcome Screen
+sudo python3 - << 'PYEOF'
+p = "/usr/lib/linuxmint/mintwelcome/mintwelcome.py"
+try:
+    with open(p, "r") as f:
+        code = f.read()
+    if "ultimate-hw-advisor" not in code and "mintdrivers" in code:
+        snippet = '        self.add_first_step("Fan & RGB Control Advisor", "Find third-party open-source fan and RGB control projects for your laptop or PC.", "preferences-system", "/usr/local/bin/ultimate-hw-advisor")'
+        lines = code.splitlines()
+        for i, line in enumerate(lines):
+            if "mintdrivers" in line:
+                lines.insert(i + 1, snippet)
+                break
+        with open(p, "w") as f:
+            f.write("\n".join(lines) + "\n")
+except Exception:
+    pass
+PYEOF
