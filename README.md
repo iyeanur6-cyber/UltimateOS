@@ -36,7 +36,7 @@
 
 ## 🧪 Tested Hardware & Performance Footprint
 
-UltimateOS `v1.0.0` has been built, daily-driven on bare-metal hardware, and verified in QEMU/KVM Live ISO sessions:
+UltimateOS `v1.1.0` has been built, daily-driven on bare-metal hardware, and verified in QEMU/KVM Live ISO sessions:
 
 | Test Environment | Hardware / VM Configuration | Idle RAM (`free -h`) | Verified Components |
 | :--- | :--- | :--- | :--- |
@@ -57,17 +57,17 @@ UltimateOS `v1.0.0` has been built, daily-driven on bare-metal hardware, and ver
 | **Storage** | 20 GB free disk space | 50 GB+ SSD |
 | **Graphics** | 1024×768 resolution | Hardware-accelerated GPU |
 
-### Known Notes in `v1.0.0` (Tracked for `v1.1.0`)
+### Known Notes in `v1.1.0` (Tracked for `v1.1.0`)
 - **CSD / Flatpak Window Controls:** Native X11/GTK windows (such as Terminal) display left-aligned traffic lights (`close,minimize,maximize:`) out of the box. Client-Side Decorated (CSD) apps like Nemo and sandboxed Flatpak apps may still default to right-side buttons in the Live session until overridden via `gsettings set org.cinnamon.desktop.interface gtk-decoration-layout 'close,minimize,maximize:'`.
 - **Live Session System Tray:** In minimal VM configurations, `systray@cinnamon.org` may need to be enabled in Panel Applets if the Quick Settings tray icon is hidden on first Live boot.
 
 ---
 
-## 🚀 Download Release (`v1.0.0`)
+## 🚀 Download Release (`v1.1.0`)
 
-Download the release assets from the **[UltimateOS v1.0.0 Releases Page](https://github.com/iyeanur6-cyber/UltimateOS/releases/tag/v1.0.0)**.
+Download the release assets from the **[UltimateOS v1.1.0 Releases Page](https://github.com/iyeanur6-cyber/UltimateOS/releases/tag/v1.1.0)**.
 
-Because GitHub Releases enforces a 2 GB limit per file, the **3.32 GiB** bootable ISO is distributed as two `.zip` parts alongside its SHA256 and MD5 checksum files:
+Because GitHub Releases enforces a 2 GB limit per file, the **3.01 GiB** bootable ISO is distributed as two `.zip` parts alongside its SHA256 and MD5 checksum files:
 - `UltimateOS-22.3-amd64-part1.zip` (~1.8 GB)
 - `UltimateOS-22.3-amd64-part2.zip` (~1.5 GB)
 - `UltimateOS-22.3-amd64-sha256.txt`
@@ -77,7 +77,7 @@ Because GitHub Releases enforces a 2 GB limit per file, the **3.32 GiB** bootabl
 
 ## 📦 Step 1: Merge, Extract & Verify the ISO
 
-1. Download **all four files** from the [Releases Page](https://github.com/iyeanur6-cyber/UltimateOS/releases/tag/v1.0.0) into the same folder (for example, `~/Downloads`).
+1. Download **all four files** from the [Releases Page](https://github.com/iyeanur6-cyber/UltimateOS/releases/tag/v1.1.0) into the same folder (for example, `~/Downloads`).
 2. Open a terminal in that folder, merge the two split `.zip` parts, and extract `UltimateOS-22.3-amd64.iso`:
    ```bash
    mv UltimateOS-22.3-amd64-part1.zip UltimateOS-22.3-amd64.z01 && \
@@ -142,11 +142,11 @@ UltimateOS/
 
 **UltimateOS (Standard Edition)** is designed as a fast, visually refined daily-driver OS (~1.6 GiB idle RAM) with zero local AI hardware overhead—combining native Linux Mint 22.3 stability with instant cloud-AI keyboard shortcuts and gaming readiness.
 
-### ✅ Completed in `v1.0.0`
+### ✅ Completed in `v1.1.0`
 - **Base & Updates:** Linux Mint 22.3 (*Zena*) Cinnamon base with 100% native Mint Update Manager & Ubuntu LTS compatibility.
 - **ColorOS Quick Settings Panel:** Translucent glass GTK3 panel (`#2aa6a6` accents) with Wi-Fi/Bluetooth drawers, PipeWire audio, brightness, Night Light, and system toggles.
 - **Visual Identity & Branding:** Top-bar layout, WhiteSur Dark theme/icons, Cinnamenu, BlurCinnamon, and custom Neon Penguin Plymouth boot splash.
-- **Browser & ISO Release:** Pre-installed Brave Browser (Firefox removed), clean user-data scrub, and published bootable ISO (`v1.0.0`).
+- **Browser & ISO Release:** Pre-installed Brave Browser (Firefox removed), clean user-data scrub, and published bootable ISO (`v1.1.0`).
 
 ### 🚧 Remaining for Standard Edition Final (`v1.1.0`)
 - **Hardware Copilot Key Shortcuts:** Out-of-the-box bindings mapping `Copilot` → **Google Gemini**, `Alt + Copilot` → **ChatGPT**, and `Ctrl + Copilot` → **Claude**.
