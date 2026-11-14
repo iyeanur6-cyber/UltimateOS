@@ -84,3 +84,28 @@ Because GitHub Releases enforces a 2 GB limit per file, the **3.32 GiB** bootabl
    mv UltimateOS-22.3-amd64-part2.zip UltimateOS-22.3-amd64.zip && \
    zip -F UltimateOS-22.3-amd64.zip --out UltimateOS-full.zip && \
    unzip UltimateOS-full.zip
+
+---
+
+## 📁 Project Structure
+
+```text
+UltimateOS/
+├── assets/
+├── bin/
+├── cinnamon-configs/
+├── configs/
+├── icons/
+├── local-cinnamon/
+├── quick-settings-coloros/
+├── themes/
+├── wallpaper/
+├── README.md
+├── boot-logo.png.png
+├── cinnamon-dconf.ini
+├── cinnamon-full.ini
+├── extra-apps.txt
+├── full-desktop-dconf.ini
+├── install.sh
+└── keybindings.ini
+```
