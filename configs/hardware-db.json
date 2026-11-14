@@ -135,6 +135,118 @@
       "project_name": "OpenRazer + Polychromatic",
       "repo_url": "https://github.com/openrazer/openrazer",
       "features": "Per-Key Chroma RGB, Fan RPM Control & Power Modes"
+    },
+    {
+      "vendor_match": "SAMSUNG",
+      "model_match": "Galaxy Book|NP750|NP950|NP960|Odyssey",
+      "display_name": "Samsung Galaxy Book / Odyssey Series",
+      "project_name": "samsung-galaxybook-extras + nbfc-linux",
+      "repo_url": "https://github.com/joshuagrisham/samsung-galaxybook-extras",
+      "features": "Performance/Silent Fan Modes, Battery Charge Limit & Keyboard Backlight"
+    },
+    {
+      "vendor_match": "TUXEDO|CLEVO|Tongfang|Schenker|XMG|System76",
+      "model_match": ".*",
+      "display_name": "TUXEDO / XMG / Clevo / Tongfang / System76 Series",
+      "project_name": "TUXEDO Control Center (tuxedo-drivers)",
+      "repo_url": "https://github.com/tuxedocomputers/tuxedo-control-center",
+      "features": "Custom Fan Curves, CPU/GPU TDP Limits & Per-Key/Zone RGB"
+    },
+    {
+      "vendor_match": "Framework",
+      "model_match": "Laptop",
+      "display_name": "Framework Laptop (13 / 16)",
+      "project_name": "fw-fanctrl + OpenRGB",
+      "repo_url": "https://github.com/TamtamHero/fw-fanctrl",
+      "features": "Custom EC Fan Curves & Input Module RGB Control"
+    },
+    {
+      "vendor_match": "LG Electronics",
+      "model_match": "gram|14Z|15Z|16Z|17Z",
+      "display_name": "LG gram Ultrabook Series",
+      "project_name": "lg-laptop kernel driver + nbfc-linux",
+      "repo_url": "https://github.com/nbfc-linux/nbfc-linux",
+      "features": "Silent/Cooling Fan Modes & Battery Care Threshold"
+    },
+    {
+      "vendor_match": "HUAWEI|HONOR",
+      "model_match": "MateBook|MagicBook",
+      "display_name": "Huawei MateBook / Honor MagicBook Series",
+      "project_name": "huawei-wmi + nbfc-linux",
+      "repo_url": "https://github.com/aymanbagabas/Huawei-WMI",
+      "features": "Fn-Lock, Battery Protection & EC Fan Profiles"
+    },
+    {
+      "vendor_match": "TIMI|Xiaomi|Redmi",
+      "model_match": "Mi Notebook|RedmiBook|Gaming",
+      "display_name": "Xiaomi Mi Notebook / RedmiBook Series",
+      "project_name": "nbfc-linux (NoteBook FanControl)",
+      "repo_url": "https://github.com/nbfc-linux/nbfc-linux",
+      "features": "Custom EC Fan Speed Curves & Thermal Profiles"
+    },
+    {
+      "vendor_match": "INFINIX|TECNO",
+      "model_match": "GT Book|INBook|Megabook",
+      "display_name": "Infinix GT Book / INBook / Tecno Series",
+      "project_name": "nbfc-linux + OpenRGB",
+      "repo_url": "https://github.com/nbfc-linux/nbfc-linux",
+      "features": "EC Fan Curve Profiles & Backlight Control"
+    },
+    {
+      "vendor_match": "Microsoft Corporation",
+      "model_match": "Surface",
+      "display_name": "Microsoft Surface Laptop / Book / Pro Series",
+      "project_name": "linux-surface (surface-control)",
+      "repo_url": "https://github.com/linux-surface/linux-surface",
+      "features": "Thermal Performance Profiles & Surface Hardware Support"
+    },
+    {
+      "vendor_match": "Apple",
+      "model_match": "MacBook",
+      "display_name": "Apple MacBook Pro / Air (Intel)",
+      "project_name": "mbpfan",
+      "repo_url": "https://github.com/linux-on-mac/mbpfan",
+      "features": "Dynamic Temperature-Based Fan Curve Daemon"
+    },
+    {
+      "vendor_match": "ASUS",
+      "model_match": "GX502|GX531|GX701|GA401|GA502|GA503|GU502|G713|G733|G814|G834|FA617|FX516|FX517",
+      "display_name": "ASUS ROG Zephyrus / Strix Scar / TUF Dash Series",
+      "project_name": "asusctl & ROG Control Center (asus-linux.org)",
+      "repo_url": "https://gitlab.com/asus-linux/asusctl",
+      "features": "Custom Fan Curves, Aura Sync RGB, Anime Matrix & MUX Switch"
+    },
+    {
+      "vendor_match": "LENOVO",
+      "model_match": "Y530|Y540|Y740|15ACH6|15IAH7|15ARH7|16IAH7|16ARH7|16IRH8|16APH9|16IRX8|Slim 5|Slim 7|Pro 5|Pro 7",
+      "display_name": "Lenovo Legion 5 / 7 / Slim / Pro Series",
+      "project_name": "LenovoLegionLinux (legion_laptop)",
+      "repo_url": "https://github.com/johnfanv2/LenovoLegionLinux",
+      "features": "Custom Fan Curves, Legion Spectrum RGB & Conservation Mode"
+    },
+    {
+      "vendor_match": "HP|Hewlett-Packard",
+      "model_match": "15-dh|15-dk|15-ec|15-en|16-b|16-c|16-k|16-n|16-u|17-cb",
+      "display_name": "HP OMEN / Pavilion Gaming Model Codes",
+      "project_name": "omen-fan + nbfc-linux",
+      "repo_url": "https://github.com/alou-S/omen-fan",
+      "features": "Manual/Auto Fan Speed Control & Thermal Performance Modes"
+    },
+    {
+      "vendor_match": "Micro-Star|MSI",
+      "model_match": "GS66|GS76|GE66|GE77|GE78|GP68|GP76|GL65|GL66|GF65|GF66|GF76|Sword|Pulse|Delta",
+      "display_name": "MSI Stealth / Raider / Leopard / Sword / Delta Series",
+      "project_name": "MControlCenter + msi-ec + OpenRGB",
+      "repo_url": "https://github.com/dmitry-s93/MControlCenter",
+      "features": "Custom Fan Curves, Cooler Boost, MUX & SteelSeries RGB"
+    },
+    {
+      "vendor_match": "Acer",
+      "model_match": "PH16|PH18|PT515|PT516|AN517|ANV16|SFX14|SF314|A515|A715",
+      "display_name": "Acer Predator Helios / Triton / Nitro / Aspire Series",
+      "project_name": "DivAcerManagerMax (DAMX) / nbfc-linux",
+      "repo_url": "https://github.com/PXDiv/Div-Acer-Manager-Max",
+      "features": "Fan Speed Control, Thermal Modes & Keyboard Backlight"
     }
   ],
   "fallback_laptop": {
