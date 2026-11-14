@@ -109,3 +109,29 @@ UltimateOS/
 ├── install.sh
 └── keybindings.ini
 ```
+
+---
+
+## 🔭 Project Vision & Roadmap
+
+**UltimateOS** is built directly on **Linux Mint 22.3 (*Zena* / Cinnamon Edition)** while preserving 100% compatibility with the official Linux Mint Update Manager and Ubuntu LTS repositories—ensuring seamless kernel, security, and system updates out of the box.
+
+### 🎯 Planned Editions
+
+1. **UltimateOS (Standard Edition)**
+   - **Focus:** Lightweight, modern daily-driver desktop with zero local AI hardware overhead.
+   - **Dedicated Hardware Copilot Key Shortcuts:**
+     - `Copilot` → Launches **Google Gemini**
+     - `Alt + Copilot` → Launches **ChatGPT**
+     - `Ctrl + Copilot` → Launches **Claude**
+   - **Gaming & Compatibility Ready:** Pre-configured with **Wine** and essential graphics driver support alongside Mint's built-in Driver Manager for smooth Windows app and PC gaming compatibility.
+
+2. **UltimateOS AI Lite (Hybrid Privacy-First Edition)**
+   - **Focus:** Lightweight on-device local AI assistance paired with optional cloud AI support for everyday tasks.
+   - **Strict Data Isolation:** Enforces strict OS-level privacy rules—zero local files, personal data, or system metadata are ever shared with external cloud models without explicit user action.
+   - **Gaming & Compatibility Ready:** Ships with **Wine** and graphics driver support pre-configured out of the box.
+
+3. **UltimateOS AI Pro (Workstation Local-AI Edition)**
+   - **Focus:** Deep, workstation-grade offline local LLM orchestration integrated directly into the OS workflow, backed by a privacy-hardened cloud fallback when needed.
+   - **Clear Hardware Tiers:** Published minimum and recommended VRAM/RAM hardware requirements so users can run local models reliably at full speed.
+   - **Gaming & Compatibility Ready:** Includes **Wine** and full GPU/graphics driver support for both local AI compute and gaming.
