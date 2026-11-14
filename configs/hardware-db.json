@@ -2,19 +2,83 @@
   "laptops": [
     {
       "vendor_match": "Acer",
-      "model_match": "ALG",
+      "model_match": "ALG|AL15G",
       "display_name": "Acer ALG Gaming Series",
-      "project_name": "DivAcerManagerMax (DAMX) / alg-daemon",
-      "repo_url": "https://github.com/PXDiv/Div-Acer-Manager-Max",
-      "features": "Fan Speed Control, Power Profiles & Keyboard Backlight"
+      "project_name": "ALG Control (alg-daemon)",
+      "repo_url": "https://github.com/search?q=alg-daemon+acer+linux&type=repositories",
+      "features": "Custom Fan Curves, Thermal Profiles & Keyboard Backlight Control"
     },
     {
       "vendor_match": "Acer",
-      "model_match": "Nitro|Predator",
+      "model_match": "Nitro|Predator|Helios|Triton",
       "display_name": "Acer Nitro / Predator Series",
-      "project_name": "DivAcerManagerMax (DAMX)",
+      "project_name": "DivAcerManagerMax (DAMX) / predator-linux-module",
       "repo_url": "https://github.com/PXDiv/Div-Acer-Manager-Max",
-      "features": "Fan Curve Control, Thermal Modes & 4-Zone RGB Keyboard"
+      "features": "Fan Speed Control, Power Modes & 4-Zone RGB Keyboard"
+    },
+    {
+      "vendor_match": "Acer",
+      "model_match": "Aspire|Swift|TravelMate",
+      "display_name": "Acer Aspire / Swift Series",
+      "project_name": "nbfc-linux (NoteBook FanControl)",
+      "repo_url": "https://github.com/nbfc-linux/nbfc-linux",
+      "features": "EC Fan Curve Profiles & Silent/Performance Switching"
+    },
+    {
+      "vendor_match": "HP|Hewlett-Packard",
+      "model_match": "OMEN|Victus",
+      "display_name": "HP OMEN / Victus Gaming Series",
+      "project_name": "omen-fan",
+      "repo_url": "https://github.com/alou-S/omen-fan",
+      "features": "Manual/Auto Fan Speed Control & Thermal Performance Modes"
+    },
+    {
+      "vendor_match": "HP|Hewlett-Packard",
+      "model_match": "Pavilion|Envy|ProBook|EliteBook|ZBook",
+      "display_name": "HP Pavilion / Envy / ProBook Series",
+      "project_name": "nbfc-linux (NoteBook FanControl)",
+      "repo_url": "https://github.com/nbfc-linux/nbfc-linux",
+      "features": "EC Fan Curve Profiles & Thermal Management"
+    },
+    {
+      "vendor_match": "LENOVO",
+      "model_match": "Legion|LOQ|IdeaPad Gaming",
+      "display_name": "Lenovo Legion / LOQ / IdeaPad Gaming Series",
+      "project_name": "LenovoLegionLinux (legion_laptop)",
+      "repo_url": "https://github.com/johnfanv2/LenovoLegionLinux",
+      "features": "Custom Fan Curves, Thermal Modes, Keyboard RGB & Rapid Charge"
+    },
+    {
+      "vendor_match": "LENOVO",
+      "model_match": "ThinkPad",
+      "display_name": "Lenovo ThinkPad Series",
+      "project_name": "thinkfan (thinkpad_acpi)",
+      "repo_url": "https://github.com/vmatare/thinkfan",
+      "features": "Temperature-Based Fan Curve Control via thinkpad_acpi"
+    },
+    {
+      "vendor_match": "LENOVO",
+      "model_match": "IdeaPad|Yoga",
+      "display_name": "Lenovo IdeaPad / Yoga Series",
+      "project_name": "nbfc-linux (NoteBook FanControl)",
+      "repo_url": "https://github.com/nbfc-linux/nbfc-linux",
+      "features": "EC Fan Curve Profiles & Battery Conservation Mode"
+    },
+    {
+      "vendor_match": "Dell",
+      "model_match": "Alienware|G15|G16|G3|G5|G7",
+      "display_name": "Dell Alienware / G-Series Gaming",
+      "project_name": "AlienFX Tools (alienfx-tools) + i8kutils",
+      "repo_url": "https://github.com/T-Troll/alienfx-tools",
+      "features": "AlienFX RGB Lighting, Thermal Modes & Fan Speed Control"
+    },
+    {
+      "vendor_match": "Dell",
+      "model_match": "Inspiron|XPS|Latitude|Vostro|Precision",
+      "display_name": "Dell Inspiron / XPS / Latitude Series",
+      "project_name": "dell-bios-fan-control + i8kutils",
+      "repo_url": "https://github.com/TomFreudenberg/dell-bios-fan-control",
+      "features": "BIOS Fan Override & Manual/Auto Fan Speed Control"
     },
     {
       "vendor_match": "ASUS",
@@ -25,34 +89,18 @@
       "features": "Custom Fan Curves, Aura RGB, GPU MUX & Charge Limit"
     },
     {
-      "vendor_match": "LENOVO",
-      "model_match": "Legion|LOQ|IdeaPad Gaming",
-      "display_name": "Lenovo Legion / LOQ Series",
-      "project_name": "LenovoLegionLinux (legion_laptop)",
-      "repo_url": "https://github.com/johnfanv2/LenovoLegionLinux",
-      "features": "Fan Control, Power Modes, Keyboard RGB & Rapid Charge"
-    },
-    {
       "vendor_match": "Micro-Star|MSI",
       "model_match": "Katana|Cyborg|Raider|Stealth|Pulse|Vector|Thin",
       "display_name": "MSI Gaming Laptop Series",
       "project_name": "MControlCenter + msi-ec",
       "repo_url": "https://github.com/dmitry-s93/MControlCenter",
       "features": "Fan Speed, Cooler Boost & Battery Thresholds"
-    },
-    {
-      "vendor_match": "HP|Hewlett-Packard",
-      "model_match": "OMEN|Victus",
-      "display_name": "HP OMEN / Victus Series",
-      "project_name": "omen-fan",
-      "repo_url": "https://github.com/alou-S/omen-fan",
-      "features": "Fan Speed Control & Performance Modes"
     }
   ],
   "fallback_laptop": {
-    "project_name": "OpenRGB",
-    "repo_url": "https://gitlab.com/CalcProgrammer1/OpenRGB",
-    "features": "Universal Keyboard & Peripheral RGB Lighting Sync"
+    "project_name": "nbfc-linux + OpenRGB",
+    "repo_url": "https://github.com/nbfc-linux/nbfc-linux",
+    "features": "Universal NoteBook FanControl Profiles & RGB Lighting Sync"
   },
   "desktop_pc": {
     "project_name": "CoolerControl + OpenRGB",
