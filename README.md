@@ -4,151 +4,195 @@
   <img src="boot-logo.png.png" alt="UltimateOS Neon Penguin Emblem" width="220" />
 </p>
 
-**Dream • Customize • Use** — **UltimateOS** is a modern, lightweight desktop distribution built on **Linux Mint 22.3 (*Zena* / Ubuntu 24.04 LTS base)** with the Cinnamon desktop environment. It combines the rock-solid stability and official updates of Linux Mint with a custom **ColorOS-inspired translucent glass Quick Settings panel**, custom Neon Penguin Plymouth boot branding, a streamlined top-bar layout, WhiteSur themes and icons, and **Brave Browser** pre-installed out of the box.
+<p align="center"><strong>Dream • Customize • Use</strong></p>
+
+UltimateOS is a customized desktop distribution based on **Linux Mint 22.3 (Zena), Ubuntu 24.04 LTS base, and Cinnamon**. The project keeps Mint as its underlying operating system and adds a distinct desktop experience: a ColorOS-inspired GTK Quick Settings panel, a streamlined Cinnamon layout, WhiteSur styling, Neon Penguin boot branding, Brave Browser, AI web shortcuts, and hardware-discovery utilities.
+
+> **Project scope:** UltimateOS is a Linux Mint-based remaster/customization project. It is not a new Linux kernel or an independently maintained Linux distribution base. Core operating-system packages and updates continue to come from the Mint/Ubuntu ecosystem.
 
 ---
 
-## 🖼️ Screenshots & UI Showcase
+## Screenshots
 
-| ColorOS-Inspired Quick Settings Panel | Desktop, App Menu & Window Controls |
+| ColorOS-inspired Quick Settings | Desktop, app menu and window controls |
 | :---: | :---: |
-| ![ColorOS Quick Settings](assets/quick-settings.png) | ![UltimateOS Desktop & App Menu](assets/app-menu-windows.png) |
+| ![ColorOS Quick Settings](assets/quick-settings.png) | ![UltimateOS desktop and app menu](assets/app-menu-windows.png) |
 
 ---
 
-## ✨ Key Features
+## Main features
 
-- **ColorOS-Style Quick Settings Panel:**
-  - Translucent dark-glass control center with calm `#2aa6a6` teal active highlights and crisp high-contrast labels.
-  - Interactive **Wi-Fi** and **Bluetooth** device drawers powered by `blueman-manager` with automatic `rfkill` soft-block clearing.
-  - One-click toggles for **Night Light**, **Power Saver**, **Mute Mic**, **Camera (`cheese`)**, **Airplane Mode**, **Do Not Disturb**, and **Dark Mode**.
-  - Unified brightness (`brightnessctl`) and PipeWire volume (`wpctl`) sliders with live media controls.
-- **Modern Top-Bar Desktop Layout:**
-  - Streamlined Cinnamon top panel with Cinnamenu, BlurCinnamon, WhiteSur themes/icons, and curated wallpaper applied automatically via `dconf`.
-- **Privacy-First Browser Setup:**
-  - Pre-installs **Brave Browser** from its official APT repository and cleanly removes pre-installed Firefox to keep the base image lean.
-- **100% Official Mint & Ubuntu Updates:**
-  - Built cleanly on standard Linux Mint 22.3 packages—Linux kernel, driver, and security updates from Mint's Update Manager work seamlessly without breaking your UI.
-- **Zero Personal Data:**
-  - Completely scrubbed of local usernames, browser profiles, passwords, or machine-specific keys.
+### Cinnamon desktop and visual identity
+- ColorOS-inspired translucent dark-glass Quick Settings panel with teal `#2aa6a6` active-state accents.
+- Streamlined Cinnamon top panel, Cinnamenu, BlurCinnamon, WhiteSur themes/icons and curated wallpaper.
+- Custom Neon Penguin Plymouth boot branding.
+- Cinnamon configuration is applied through the repository's dconf/configuration files.
+
+### Quick Settings control center
+- GTK3 application with Wi-Fi and Bluetooth drawers.
+- Uses existing Linux services and utilities, including NetworkManager/`nmcli`, BlueZ/`bluetoothctl`, `rfkill`, PipeWire/`wpctl`, `brightnessctl`, `playerctl` and UPower.
+- Audio and brightness sliders, media controls, Night Light and system toggles.
+- Additional actions include Power Saver, microphone mute, camera launcher, Airplane Mode, Do Not Disturb and Dark Mode.
+
+The panel is a desktop control interface; the underlying system services remain responsible for networking, audio, power and device operation.
+
+### Browser and AI shortcuts
+- Brave Browser is installed from its official APT repository by the installer; the installer also removes the pre-installed Firefox packages.
+- The AI launcher opens the selected service in the browser: Gemini, ChatGPT or Claude.
+- Cinnamon keybindings are configured for the Copilot-key event and modifier combinations. The actual key event depends on how a laptop's firmware and Linux input stack expose that key; fallback key symbols are configured for supported mappings.
+
+**AI integration note:** The Standard Edition launches cloud AI websites. It does not bundle or run a local language model, and using a cloud service is subject to that provider's account, network, privacy and data-handling policies.
+
+### Hardware Fan & RGB Advisor
+- Reads local DMI/SMBIOS system-vendor and model information to identify a likely laptop or desktop profile.
+- Downloads the public hardware profile database from this repository and recommends a relevant third-party Linux fan/RGB project.
+- The database includes model patterns for Acer, HP, Lenovo, ASUS, Dell, MSI and other vendors, plus generic laptop/desktop fallbacks.
+- The advisor is a **discovery/recommendation utility**. It does not itself control fans, write to the embedded controller, install the recommended third-party project or guarantee compatibility.
+
+**Third-party hardware disclaimer:** Recommended projects are maintained independently. Check their documentation and model support before installing or using them. Fan and embedded-controller tools can affect thermals and hardware behavior; use them only when you understand the risks.
+
+### Lean first-boot setup
+The first-boot optional-software wizard is skipped in a Casper Live session. On an installed system it can offer optional installation of:
+- **Gaming & Windows compatibility:** Wine and Winetricks.
+- **Office suite:** LibreOffice.
+
+These packages are optional so the base installation can remain lean. They can also be installed later through the package manager.
 
 ---
 
-## 🧪 Tested Hardware & Performance Footprint
+## Tested environments and performance
 
-UltimateOS `v1.1.0` has been built, daily-driven on bare-metal hardware, and verified in QEMU/KVM Live ISO sessions:
+The project README's recorded tests are:
 
-| Test Environment | Hardware / VM Configuration | Idle RAM (`free -h`) | Verified Components |
-| :--- | :--- | :--- | :--- |
-| **Primary Host Laptop** | **Acer ALG (AL15G-53)**<br>• CPU: Intel Core i5-13420H<br>• GPU: NVIDIA GeForce RTX 3050 Mobile (4 GB VRAM)<br>• RAM: 16 GB DDR4<br>• Storage: 512 GB NVMe SSD | **~1.6 GiB** (full desktop + Quick Settings + BlurCinnamon active) | ColorOS Quick Settings (`#2aa6a6`), WhiteSur Dark theme & icons, Cinnamenu, BlurCinnamon, Brave Browser, custom keybindings, PipeWire/WirePlumber audio & brightness controls |
-| **Live ISO Virtualization** | **QEMU / KVM (`x86_64`)**<br>• Boot Mode: BIOS / UEFI Live Session | **~1.6–1.8 GiB** (Live `squashfs` overlay) | Custom Neon Penguin Plymouth boot splash, Brave Browser default browser, WhiteSur icons, top bar, Terminal traffic-light window controls, Quick Settings daemon (`quick_settings.app`) |
+| Environment | Configuration | Recorded idle memory |
+| :--- | :--- | :---: |
+| Primary laptop | Acer ALG AL15G-53; Intel Core i5-13420H; NVIDIA RTX 3050 Mobile 4 GB; 16 GB DDR4 | ~1.6 GiB |
+| QEMU/KVM Live session | x86_64 virtual machine, BIOS/UEFI boot | ~1.6–1.8 GiB |
 
+The laptop measurement was recorded with the desktop and Quick Settings active. The VM measurement was recorded in a Live session. These are observed measurements, not guaranteed values or minimum hardware requirements; memory use varies with drivers, services, display configuration and running applications.
 
 <p align="center">
-  <img src="assets/ram-usage.png" alt="UltimateOS Idle Memory Footprint (free -h)" width="680" />
+  <img src="assets/ram-usage.png" alt="Recorded UltimateOS idle memory footprint" width="680" />
 </p>
 
-### System Requirements
+### Suggested system requirements
 
-| Component | Minimum | Recommended |
+| Component | Suggested baseline | More comfortable |
 | :--- | :--- | :--- |
-| **Processor** | 64-bit x86_64 Dual-Core CPU | Quad-Core Intel / AMD CPU |
-| **RAM** | 2 GB *(~1.6 GiB idle footprint)* | 4 GB or more |
-| **Storage** | 20 GB free disk space | 50 GB+ SSD |
-| **Graphics** | 1024×768 resolution | Hardware-accelerated GPU |
+| CPU | 64-bit x86_64 dual-core | Modern quad-core Intel/AMD |
+| RAM | 4 GB | 8 GB or more |
+| Storage | 25 GB free | 50 GB+ SSD |
+| Graphics | Mint-supported graphics, 1024×768 display | Hardware-accelerated GPU |
 
-### Known Notes in `v1.1.0` (Tracked for `v1.1.0`)
-- **CSD / Flatpak Window Controls:** Native X11/GTK windows (such as Terminal) display left-aligned traffic lights (`close,minimize,maximize:`) out of the box. Client-Side Decorated (CSD) apps like Nemo and sandboxed Flatpak apps may still default to right-side buttons in the Live session until overridden via `gsettings set org.cinnamon.desktop.interface gtk-decoration-layout 'close,minimize,maximize:'`.
-- **Live Session System Tray:** In minimal VM configurations, `systray@cinnamon.org` may need to be enabled in Panel Applets if the Quick Settings tray icon is hidden on first Live boot.
+The recorded ~1.6 GiB idle result should not be interpreted as a 2 GB system requirement: additional memory is needed for applications and normal workloads.
 
 ---
 
-## 🚀 Download Release (`v1.1.0`)
+## Download
 
-Download the release assets from the **[UltimateOS v1.1.0 Releases Page](https://github.com/iyeanur6-cyber/UltimateOS/releases/tag/v1.1.0)**.
+Download the published ISO and its accompanying files from the [UltimateOS Releases page](https://github.com/iyeanur6-cyber/UltimateOS/releases).
 
-Because GitHub Releases enforces a 2 GB limit per file, the **3.01 GiB** bootable ISO is distributed as two `.zip` parts alongside its SHA256 and MD5 checksum files:
-- `UltimateOS-22.3-amd64-part1.zip` (~1.8 GB)
-- `UltimateOS-22.3-amd64-part2.zip` (~1.5 GB)
-- `UltimateOS-22.3-amd64-sha256.txt`
-- `UltimateOS-22.3-amd64-md5.txt`
+The v1.1.0 release notes describe the 3.01 GiB ISO as split across two ZIP parts because of GitHub's per-file release upload limit. Download every part and the checksum file into the same directory before reconstructing the archive. Follow the filenames and reconstruction instructions published with that release; do not rename or omit one of the parts.
+
+After extracting the ISO, verify it against the SHA-256 checksum supplied for that release:
+
+```bash
+sha256sum -c UltimateOS-22.3-amd64-sha256.txt
+```
+
+The checksum command must be run from the directory containing both the ISO and the checksum file. A successful verification reports `OK`. If the checksum file uses a different filename or references a different ISO filename, use the exact names shown inside that file.
 
 ---
 
-## 📦 Step 1: Merge, Extract & Verify the ISO
+## Installation
 
-1. Download **all four files** from the [Releases Page](https://github.com/iyeanur6-cyber/UltimateOS/releases/tag/v1.1.0) into the same folder (for example, `~/Downloads`).
-2. Open a terminal in that folder, merge the two split `.zip` parts, and extract `UltimateOS-22.3-amd64.iso`:
+1. Back up important files and review the installer before running it.
+2. Download or clone this repository and open a terminal in the repository root.
+3. Run the installer as your normal desktop user:
+
    ```bash
-   mv UltimateOS-22.3-amd64-part1.zip UltimateOS-22.3-amd64.z01 && \
-   mv UltimateOS-22.3-amd64-part2.zip UltimateOS-22.3-amd64.zip && \
-   zip -F UltimateOS-22.3-amd64.zip --out UltimateOS-full.zip && \
-   unzip UltimateOS-full.zip
+   bash install.sh
+   ```
+
+The script requests administrative privileges for system-level package and file operations. It installs the Quick Settings dependencies and Brave Browser when needed, removes Firefox packages, deploys the Quick Settings application, applies Cinnamon configuration, installs the AI launcher and hardware advisor, and adds the optional-software first-boot entry.
+
+> **Important:** The installer changes system packages and Cinnamon/user configuration. It also modifies the installed Mint Welcome Python file to add the Hardware Advisor entry. Review `install.sh` before execution, make a backup, and run it only on a supported/test system. The repository does not currently provide a full transactional rollback installer.
+
+For a clean evaluation, use the published Live ISO in a virtual machine first. Hardware-specific features should be tested on the target machine before relying on them.
 
 ---
 
-## 📁 Project Structure
+## Project layout
 
 ```text
 UltimateOS/
-├── assets/
-├── bin/
-├── cinnamon-configs/
-├── configs/
+├── assets/                  # Screenshots and project visuals
+├── bin/                     # Quick Settings, AI launcher and hardware advisor commands
+├── cinnamon-configs/        # Cinnamon-related configuration assets
+├── configs/                 # Keybindings and hardware profile database
 ├── icons/
 ├── local-cinnamon/
-├── quick-settings-coloros/
+├── quick-settings-coloros/  # GTK3 Quick Settings application
 ├── themes/
 ├── wallpaper/
-├── README.md
-├── boot-logo.png.png
+├── install.sh               # System and user configuration installer
 ├── cinnamon-dconf.ini
 ├── cinnamon-full.ini
-├── extra-apps.txt
 ├── full-desktop-dconf.ini
-├── install.sh
-└── keybindings.ini
+├── extra-apps.txt
+├── keybindings.ini
+└── README.md
 ```
 
----
-
-## 🔭 Project Vision & Roadmap
-
-**UltimateOS** is built directly on **Linux Mint 22.3 (*Zena* / Cinnamon Edition)** while preserving 100% compatibility with the official Linux Mint Update Manager and Ubuntu LTS repositories—ensuring seamless kernel, security, and system updates out of the box.
-
-### 🎯 Planned Editions
-
-1. **UltimateOS (Standard Edition)**
-   - **Focus:** Lightweight, modern daily-driver desktop with zero local AI hardware overhead.
-   - **Dedicated Hardware Copilot Key Shortcuts:**
-     - `Copilot` → Launches **Google Gemini**
-     - `Alt + Copilot` → Launches **ChatGPT**
-     - `Ctrl + Copilot` → Launches **Claude**
-   - **Gaming & Compatibility Ready:** Pre-configured with **Wine** and essential graphics driver support alongside Mint's built-in Driver Manager for smooth Windows app and PC gaming compatibility.
-
-2. **UltimateOS AI Lite (Hybrid Privacy-First Edition)**
-   - **Focus:** Lightweight on-device local AI assistance paired with optional cloud AI support for everyday tasks.
-   - **Strict Data Isolation:** Enforces strict OS-level privacy rules—zero local files, personal data, or system metadata are ever shared with external cloud models without explicit user action.
-   - **Gaming & Compatibility Ready:** Ships with **Wine** and graphics driver support pre-configured out of the box.
-
-3. **UltimateOS AI Pro (Workstation Local-AI Edition)**
-   - **Focus:** Deep, workstation-grade offline local LLM orchestration integrated directly into the OS workflow, backed by a privacy-hardened cloud fallback when needed.
-   - **Clear Hardware Tiers:** Published minimum and recommended VRAM/RAM hardware requirements so users can run local models reliably at full speed.
-   - **Gaming & Compatibility Ready:** Includes **Wine** and full GPU/graphics driver support for both local AI compute and gaming.
+Some generated ISO/build assets may be maintained separately from the desktop application sources.
 
 ---
 
-## 🧩 UltimateOS (Standard Edition) — Architecture & Completion Status
+## Standard Edition status and roadmap
 
-**UltimateOS (Standard Edition)** is designed as a fast, visually refined daily-driver OS (~1.6 GiB idle RAM) with zero local AI hardware overhead—combining native Linux Mint 22.3 stability with instant cloud-AI keyboard shortcuts and gaming readiness.
+### Implemented in the current Standard Edition source
+- Linux Mint 22.3 Cinnamon base and custom desktop configuration.
+- ColorOS-inspired Quick Settings GTK3 application.
+- WhiteSur visual styling, Cinnamenu, BlurCinnamon and custom boot branding.
+- Brave Browser installation path.
+- Browser-based Gemini, ChatGPT and Claude launcher with Cinnamon keybindings.
+- Optional first-boot installation choices for Wine/Winetricks and LibreOffice.
+- Hardware Fan & RGB Advisor with a repository-hosted hardware matching database.
 
-### ✅ Completed in `v1.1.0`
-- **Base & Updates:** Linux Mint 22.3 (*Zena*) Cinnamon base with 100% native Mint Update Manager & Ubuntu LTS compatibility.
-- **ColorOS Quick Settings Panel:** Translucent glass GTK3 panel (`#2aa6a6` accents) with Wi-Fi/Bluetooth drawers, PipeWire audio, brightness, Night Light, and system toggles.
-- **Visual Identity & Branding:** Top-bar layout, WhiteSur Dark theme/icons, Cinnamenu, BlurCinnamon, and custom Neon Penguin Plymouth boot splash.
-- **Browser & ISO Release:** Pre-installed Brave Browser (Firefox removed), clean user-data scrub, and published bootable ISO (`v1.1.0`).
+### Remaining polish / validation
+- Broader hardware testing for the Quick Settings backends and keyboard-key event mappings.
+- Consistent client-side decoration/window-button behavior across GTK, CSD and Flatpak applications.
+- Live-session tray visibility and panel behavior across different display/VM configurations.
+- More robust installer preflight checks, backup/rollback behavior and error reporting.
+- Continued verification of third-party hardware database recommendations and model-specific compatibility.
 
-### 🚧 Remaining for Standard Edition Final (`v1.1.0`)
-- **Hardware Copilot Key Shortcuts:** Out-of-the-box bindings mapping `Copilot` → **Google Gemini**, `Alt + Copilot` → **ChatGPT**, and `Ctrl + Copilot` → **Claude**.
-- **Gaming & Compatibility Stack:** Pre-installed **Wine** environment paired with Mint's Driver Manager for one-click GPU driver setup.
-- **UI Consistency Polish:** Enforce left-side traffic-light controls across CSD apps (Nemo) and Flatpaks, plus explicit `systray@cinnamon.org` panel locking in Live sessions.
+### Longer-term editions
+
+1. **UltimateOS Standard** — lightweight desktop with browser-based AI shortcuts and optional compatibility/office packages.
+2. **UltimateOS AI Lite** — planned hybrid local/cloud AI edition, with explicit user control over what information is shared with cloud services.
+3. **UltimateOS AI Pro** — planned workstation edition for local LLM workflows, with documented VRAM/RAM tiers and optional cloud fallback.
+
+AI Lite and AI Pro are roadmap concepts, not capabilities delivered by the Standard Edition described here. Privacy boundaries and local-model behavior must be implemented and tested before those editions can make stronger guarantees.
+
+---
+
+## Compatibility and support
+
+- Primary target: Linux Mint 22.3 Cinnamon.
+- The project relies on Mint/Cinnamon, GTK3, dconf and standard Linux service interfaces.
+- The installer and desktop configuration are not presented as universally compatible with every Linux distribution or desktop environment.
+- Hardware fan/RGB recommendations are model-dependent and may not work on every revision of a listed product family.
+
+## Contributing and reporting issues
+
+Please include:
+- Linux Mint/Cinnamon version and kernel version.
+- Laptop/desktop manufacturer and exact model.
+- Relevant command output or logs, with usernames, serial numbers and other personal identifiers removed.
+- Steps to reproduce the issue and whether it occurs on the installed system or Live ISO.
+
+For hardware-control issues, include the exact third-party project and version involved. Do not share private logs or machine identifiers publicly.
+
+---
+
+**UltimateOS — Dream • Customize • Use**
