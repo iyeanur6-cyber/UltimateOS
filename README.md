@@ -59,3 +59,25 @@ Built on top of Linux Mint 22.3 (Zena) and Ubuntu 24.04 LTS. All underlying syst
 1. Open `[https://github.com/iyeanur6-cyber/UltimateOS/edit/main/README.md](https://github.com/iyeanur6-cyber/UltimateOS/edit/main/README.md)` in Brave Browser.
 2. Select all existing text (`Ctrl + A`), paste the block above (`Ctrl + V`), and click **Commit changes...** in the top-right corner.
 3. *(Optional)* To pull this updated `README.md` back down to your local `~/UltimateOS` folder so your laptop stays synced with GitHub, run `cd ~/UltimateOS && git pull origin main` in your terminal.
+```
+## 🚀 Download & Release (`v1.0.0`)
+
+The latest bootable ISO image is available on the **[UltimateOS Releases Page](https://github.com/iyeanur6-cyber/UltimateOS/releases/tag/v1.0.0)**.
+
+Because GitHub Releases limits individual file uploads to 2 GB, the **3.32 GB** ISO is distributed as two `.zip` parts alongside its SHA256 and MD5 checksums:
+* `UltimateOS-22.3-amd64-part1.zip` (~1.8 GB)
+* `UltimateOS-22.3-amd64-part2.zip` (~1.5 GB)
+* `UltimateOS-22.3-amd64-sha256.txt`
+* `UltimateOS-22.3-amd64-md5.txt`
+
+---
+
+## 📦 Step 1: Merge & Extract the ISO
+
+1. Download **all four files** from the [Releases Page](https://github.com/iyeanur6-cyber/UltimateOS/releases/tag/v1.0.0) into the same folder (for example, `~/Downloads`).
+2. Open a terminal in that folder and run the following command to merge the two split `.zip` files and extract `UltimateOS-22.3-amd64.iso`:
+   ```bash
+   mv UltimateOS-22.3-amd64-part1.zip UltimateOS-22.3-amd64.z01 && \
+   mv UltimateOS-22.3-amd64-part2.zip UltimateOS-22.3-amd64.zip && \
+   zip -F UltimateOS-22.3-amd64.zip --out UltimateOS-full.zip && \
+   unzip UltimateOS-full.zip
