@@ -84,10 +84,10 @@ Because GitHub Releases limits individual file uploads to 2 GB, the **3.32 GB** 
    ```
    Verify the integrity of the extracted ISO before flashing:
 
-Bash
+```Bash
 sha256sum -c UltimateOS-22.3-amd64-sha256.txt
 (You should see UltimateOS-22.3-amd64.iso: OK.)
-
+```
 💾 Step 2: Create a Bootable USB Drive
 Use a USB flash drive with at least 8 GB of storage (all existing data on the USB will be erased):
 
@@ -95,25 +95,26 @@ On Linux (Recommended):
 
 USB Image Writer (pre-installed on Linux Mint / UltimateOS): Open USB Image Writer, select UltimateOS-22.3-amd64.iso, choose your USB stick, and click Write.
 
-Ventoy: Copy UltimateOS-22.3-amd64.iso directly onto your Ventoy USB drive.
+Ventoy: Copy  UltimateOS-22.3-amd64.iso directly onto your Ventoy USB drive.
 
 Terminal (dd):
 
-Bash
+```Bash
 sudo dd if=UltimateOS-22.3-amd64.iso of=/dev/sdX bs=4M status=progress oflag=sync
 (Replace /dev/sdX with your actual USB device from lsblk—do not append a partition number like 1.)
-
+```
 On Windows:
 
 Use Rufus or BalenaEtcher, select UltimateOS-22.3-amd64.iso, choose your USB drive, and click Start / Flash.
 
 🖥️ Step 3: Live Boot & Install UltimateOS
-Minimum & Recommended System Requirements
+```Minimum & Recommended System Requirements
 Component	Minimum	Recommended
 Processor	64-bit x86_64 Dual-Core CPU	Quad-Core Intel / AMD CPU
 RAM	2 GB	4 GB or more
 Storage	20 GB free disk space	50 GB+ SSD
 Graphics	1024×768 resolution	Hardware-accelerated GPU
+```
 Installation Walkthrough
 Boot from USB: Restart your computer and press your motherboard's Boot Menu key (F12, F11, F2, Esc, or Del depending on your PC/laptop) to select your USB drive.
 
