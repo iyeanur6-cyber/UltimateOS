@@ -81,3 +81,64 @@ Because GitHub Releases limits individual file uploads to 2 GB, the **3.32 GB** 
    mv UltimateOS-22.3-amd64-part2.zip UltimateOS-22.3-amd64.zip && \
    zip -F UltimateOS-22.3-amd64.zip --out UltimateOS-full.zip && \
    unzip UltimateOS-full.zip
+   ```
+   Verify the integrity of the extracted ISO before flashing:
+
+Bash
+sha256sum -c UltimateOS-22.3-amd64-sha256.txt
+(You should see UltimateOS-22.3-amd64.iso: OK.)
+
+💾 Step 2: Create a Bootable USB Drive
+Use a USB flash drive with at least 8 GB of storage (all existing data on the USB will be erased):
+
+On Linux (Recommended):
+
+USB Image Writer (pre-installed on Linux Mint / UltimateOS): Open USB Image Writer, select UltimateOS-22.3-amd64.iso, choose your USB stick, and click Write.
+
+Ventoy: Copy UltimateOS-22.3-amd64.iso directly onto your Ventoy USB drive.
+
+Terminal (dd):
+
+Bash
+sudo dd if=UltimateOS-22.3-amd64.iso of=/dev/sdX bs=4M status=progress oflag=sync
+(Replace /dev/sdX with your actual USB device from lsblk—do not append a partition number like 1.)
+
+On Windows:
+
+Use Rufus or BalenaEtcher, select UltimateOS-22.3-amd64.iso, choose your USB drive, and click Start / Flash.
+
+🖥️ Step 3: Live Boot & Install UltimateOS
+Minimum & Recommended System Requirements
+Component	Minimum	Recommended
+Processor	64-bit x86_64 Dual-Core CPU	Quad-Core Intel / AMD CPU
+RAM	2 GB	4 GB or more
+Storage	20 GB free disk space	50 GB+ SSD
+Graphics	1024×768 resolution	Hardware-accelerated GPU
+Installation Walkthrough
+Boot from USB: Restart your computer and press your motherboard's Boot Menu key (F12, F11, F2, Esc, or Del depending on your PC/laptop) to select your USB drive.
+
+Test the Live Environment: UltimateOS boots directly into a full Live desktop session with Brave Browser, the ColorOS-inspired Quick Settings panel, and the WhiteSur Cinnamon UI ready to try before touching your hard drive.
+
+Launch the Installer: Double-click the Install UltimateOS icon on the desktop.
+
+Configure Installation:
+
+Choose your Language and Keyboard Layout.
+
+Check Install multimedia codecs if prompted.
+
+On Installation type, select Erase disk and install UltimateOS for a clean single-OS setup, or Something else if you are dual-booting alongside Windows/Linux (create a / root partition formatted as ext4, plus an EFI System Partition if booting in UEFI mode).
+
+Select your Timezone, create your Username and Password, and click Install Now.
+
+Reboot: Once installation completes, click Restart Now, remove the USB flash drive when prompted, and press Enter to boot into your installed UltimateOS system.
+
+
+---
+
+### Push the Updated `README.md` to GitHub
+
+Run this single line in your laptop terminal (`~/UltimateOS`) after adding the section above to `~/UltimateOS/README.md`:
+
+```bash
+cd ~/UltimateOS && git add README.md && git commit -m "Docs: Add v1.0.0 release download, extraction, and installation guide" && git push origin main
