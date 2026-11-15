@@ -24,9 +24,14 @@ UltimateOS is a customized desktop distribution based on **Linux Mint 22.3 (Zena
 
 ### Cinnamon desktop and visual identity
 - ColorOS-inspired translucent dark-glass Quick Settings panel with teal `#2aa6a6` active-state accents.
-- Streamlined Cinnamon top panel, Cinnamenu, BlurCinnamon, WhiteSur themes/icons and curated wallpaper.
+- Streamlined Cinnamon top panel, Cinnamenu, BlurCinnamon, WhiteSur themes/icons and the bundled lake wallpaper from the Cinnamon dynamic-wallpaper asset.
+- macOS-style left-side window controls (close, minimize, maximize) for Cinnamon/GTK windows; Brave is configured to use the system title bar so it follows the same layout.
 - Custom Neon Penguin Plymouth boot branding.
 - Cinnamon configuration is applied through the repository's dconf/configuration files.
+
+### Everyday applications
+- Brave Browser is installed from its official APT repository.
+- GNOME Disk Usage Analyzer (Baobab) is installed for visual disk-space analysis.
 
 ### Quick Settings control center
 - GTK3 application with Wi-Fi and Bluetooth drawers.
@@ -39,7 +44,7 @@ The panel is a desktop control interface; the underlying system services remain 
 ### Browser and AI shortcuts
 - Brave Browser is installed from its official APT repository by the installer; the installer also removes the pre-installed Firefox packages.
 - The AI launcher opens the selected service in the browser: Gemini, ChatGPT or Claude.
-- Cinnamon keybindings are configured for the Copilot-key event and modifier combinations. The actual key event depends on how a laptop's firmware and Linux input stack expose that key; fallback key symbols are configured for supported mappings.
+- Keyboard shortcuts launch Gemini, ChatGPT and Claude in Brave (or the default browser): **Super+Shift+G**, **Super+Alt+Shift+C** and **Super+Ctrl+Shift+A**. Copilot-key combinations are also registered where Linux exposes the key as `XF86Copilot`.
 
 **AI integration note:** The Standard Edition launches cloud AI websites. It does not bundle or run a local language model, and using a cloud service is subject to that provider's account, network, privacy and data-handling policies.
 
@@ -52,13 +57,11 @@ The panel is a desktop control interface; the underlying system services remain 
 **Third-party hardware disclaimer:** Recommended projects are maintained independently. Check their documentation and model support before installing or using them. Fan and embedded-controller tools can affect thermals and hardware behavior; use them only when you understand the risks.
 
 ### Lean first-boot setup
-A helper script, `bin/ultimate-setup-wizard`, is included. When launched, it exits in a Casper Live session and can offer optional installation of:
+The installer deploys `bin/ultimate-setup-wizard` to `/usr/local/bin` and registers a one-time Cinnamon autostart entry. At the first desktop login after installation, users can choose whether to install:
 - **Gaming & Windows compatibility:** Wine and Winetricks.
 - **Office suite:** LibreOffice.
 
-**Integration status:** The current `install.sh` does not copy this helper into a system path or create an autostart entry for it. Therefore, the wizard is present in the repository but is **not automatically launched by the documented installer flow** at this revision. Treat automatic first-boot setup as incomplete until that integration is added and tested.
-
-These packages are optional so the base installation can remain lean. They can also be installed later through the package manager.
+The wizard removes its own autostart entry after it runs or is skipped. These packages remain optional so the base installation can stay lean.
 
 ---
 
