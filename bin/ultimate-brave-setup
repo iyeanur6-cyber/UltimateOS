@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Never rewrite Chromium's live Preferences file while Brave is running.
+if pgrep -u "$(id -u)" -x brave >/dev/null 2>&1 || \
+   pgrep -u "$(id -u)" -x brave-browser >/dev/null 2>&1; then
+    exit 0
+fi
+
+PREFERENCES="$HOME/.config/BraveSoftware/Brave-Browser/Default/Preferences"
+mkdir -p "$(dirname "$PREFERENCES")"
+
+python3 - "$PREFERENCES" <<'PY'
+import json
+import os
+import pathlib
+import sys
+import tempfile
+
+path = pathlib.Path(sys.argv[1])
+settings = {}
+if path.exists():
+    try:
+        settings = json.loads(path.read_text())
+    except (OSError, json.JSONDecodeError) as error:
+        print(f"UltimateOS: could not safely update Brave preferences: {error}")
+        raise SystemExit(0)
+
+# Chromium uses this Linux preference to select its custom frame.
+# false delegates the window decorations to Cinnamon/Muffin.
+settings.setdefault("browser", {})["custom_chrome_frame"] = False
+
+fd, temporary = tempfile.mkstemp(prefix=".Preferences.ultimateos.", dir=path.parent)
+try:
+    with os.fdopen(fd, "w") as stream:
+        json.dump(settings, stream, separators=(",", ":"))
+        stream.write("\n")
+    os.chmod(temporary, 0o600)
+    os.replace(temporary, path)
+except Exception:
+    try:
+        os.unlink(temporary)
+    except OSError:
+        pass
+    raise
+PY
