@@ -1,25 +1,50 @@
 #!/usr/bin/env bash
-if grep -q "boot=casper" /proc/cmdline; then
-  exit 0
+set -u
+
+AUTOSTART_FILE="$HOME/.config/autostart/ultimate-setup-wizard.desktop"
+# This is a one-time first-login assistant, never run from a live ISO session.
+if grep -q "boot=casper" /proc/cmdline 2>/dev/null; then
+    rm -f "$AUTOSTART_FILE"
+    exit 0
 fi
 
-mintwelcome &
+# Always remove the one-shot autostart entry, including when the user cancels.
+trap 'rm -f "$AUTOSTART_FILE"' EXIT
 
-CHOICE=$(zenity --list --checklist \
-  --title="UltimateOS Optional Software" \
-  --text="Keep your system lean—select optional suites to install now (or install anytime via Software Manager):" \
-  --column="Install" --column="Suite" --column="Description" \
-  TRUE "Gaming & Windows Layer" "Wine + Winetricks for Windows apps and PC games" \
-  FALSE "Office Suite" "LibreOffice Writer, Calc, and Impress" \
-  --width=560 --height=280 2>/dev/null)
-
-if [ -n "$CHOICE" ]; then
-  PKGS=""
-  echo "$CHOICE" | grep -q "Gaming" && PKGS="$PKGS wine-installer winetricks"
-  echo "$CHOICE" | grep -q "Office" && PKGS="$PKGS libreoffice"
-  if [ -n "$PKGS" ]; then
-    x-terminal-emulator -e bash -c "sudo apt update && sudo apt install -y $PKGS; echo 'Done! Press Enter to close.'; read"
-  fi
+if ! command -v zenity >/dev/null 2>&1; then
+    command -v mintwelcome >/dev/null 2>&1 && mintwelcome &
+    exit 0
 fi
 
-rm -f "$HOME/.config/autostart/ultimate-setup-wizard.desktop"
+command -v mintwelcome >/dev/null 2>&1 && mintwelcome &
+
+CHOICE="$(zenity --list --checklist \
+    --title="UltimateOS Optional Software" \
+    --text="Choose optional applications to install. You can skip this and install them later from Software Manager." \
+    --column="Install" --column="Suite" --column="Description" \
+    TRUE "Gaming & Windows compatibility" "Wine and Winetricks for Windows applications and games" \
+    FALSE "Office suite" "LibreOffice Writer, Calc and Impress" \
+    --separator="|" --width=600 --height=300 2>/dev/null)" || true
+
+[ -n "$CHOICE" ] || exit 0
+
+PKGS=""
+case "$CHOICE" in
+    *"Gaming & Windows compatibility"*)
+        PKGS="$PKGS wine-installer winetricks"
+        ;;
+esac
+case "$CHOICE" in
+    *"Office suite"*)
+        PKGS="$PKGS libreoffice"
+        ;;
+esac
+
+[ -n "$PKGS" ] || exit 0
+
+if command -v x-terminal-emulator >/dev/null 2>&1; then
+    # PKGS contains only fixed package names selected above.
+    x-terminal-emulator -e bash -lc 'sudo apt update && sudo apt install -y "$@"; status=$?; echo; if [ "$status" -eq 0 ]; then echo "Installation completed."; else echo "Package installation failed (exit $status)."; fi; read -r -p "Press Enter to close..."' _ $PKGS
+else
+    zenity --error --text="No terminal emulator was found. Open Software Manager to install the selected applications."
+fi
