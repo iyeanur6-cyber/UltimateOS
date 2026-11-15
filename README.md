@@ -52,9 +52,11 @@ The panel is a desktop control interface; the underlying system services remain 
 **Third-party hardware disclaimer:** Recommended projects are maintained independently. Check their documentation and model support before installing or using them. Fan and embedded-controller tools can affect thermals and hardware behavior; use them only when you understand the risks.
 
 ### Lean first-boot setup
-The first-boot optional-software wizard is skipped in a Casper Live session. On an installed system it can offer optional installation of:
+A helper script, `bin/ultimate-setup-wizard`, is included. When launched, it exits in a Casper Live session and can offer optional installation of:
 - **Gaming & Windows compatibility:** Wine and Winetricks.
 - **Office suite:** LibreOffice.
+
+**Integration status:** The current `install.sh` does not copy this helper into a system path or create an autostart entry for it. Therefore, the wizard is present in the repository but is **not automatically launched by the documented installer flow** at this revision. Treat automatic first-boot setup as incomplete until that integration is added and tested.
 
 These packages are optional so the base installation can remain lean. They can also be installed later through the package manager.
 
@@ -92,7 +94,9 @@ The recorded ~1.6 GiB idle result should not be interpreted as a 2 GB system req
 
 Download the published ISO and its accompanying files from the [UltimateOS Releases page](https://github.com/iyeanur6-cyber/UltimateOS/releases).
 
-The v1.1.0 release notes describe the 3.01 GiB ISO as split across two ZIP parts because of GitHub's per-file release upload limit. Download every part and the checksum file into the same directory before reconstructing the archive. Follow the filenames and reconstruction instructions published with that release; do not rename or omit one of the parts.
+The v1.1.0 release is described as a 3.01 GiB ISO split across two ZIP parts. However, the GitHub release asset inventory checked for this documentation revision lists `UltimateOS-22.3-amd64-part1.zip` and the checksum files, but does not list `part2.zip`. **The published asset set therefore appears incomplete.** Do not treat the ISO as reconstructable until the maintainer uploads the missing part and confirms the reconstruction instructions.
+
+Once both ZIP parts are present, download both parts and the checksum file into the same directory. Follow the exact reconstruction instructions and filenames published with the release; do not rename or omit either part.
 
 After extracting the ISO, verify it against the SHA-256 checksum supplied for that release:
 
@@ -114,7 +118,7 @@ The checksum command must be run from the directory containing both the ISO and 
    bash install.sh
    ```
 
-The script requests administrative privileges for system-level package and file operations. It installs the Quick Settings dependencies and Brave Browser when needed, removes Firefox packages, deploys the Quick Settings application, applies Cinnamon configuration, installs the AI launcher and hardware advisor, and adds the optional-software first-boot entry.
+The script requests administrative privileges for system-level package and file operations. It installs the Quick Settings dependencies and Brave Browser when needed, removes Firefox packages, deploys the Quick Settings application, applies Cinnamon configuration, and installs the AI launcher and hardware advisor. It currently does **not** install or register `bin/ultimate-setup-wizard` for automatic first-boot execution.
 
 > **Important:** The installer changes system packages and Cinnamon/user configuration. It also modifies the installed Mint Welcome Python file to add the Hardware Advisor entry. Review `install.sh` before execution, make a backup, and run it only on a supported/test system. The repository does not currently provide a full transactional rollback installer.
 
